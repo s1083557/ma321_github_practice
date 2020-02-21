@@ -1,0 +1,9 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+Kobe.Ian = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P1_Kobe&Ian')
+```
+
