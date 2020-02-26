@@ -1,9 +1,35 @@
 ---
-title: "R Notebook"
+title: "Dr. Mehrkam SP20"
 output: html_notebook
 ---
 
-```{r}
+
+# 25 February 2020
+
+## Loading in SD Data 
+
+```{r, message = FALSE}
 Kobe.Ian = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P1_Kobe&Ian')
+Sally.Vanya = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P2_Sally&Vanya')
+Rocky.Oaky = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P3_Rocky&Oaky')
+Rosie.Carlie = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P4_Rosie&Carlie')
+Koda.Ava = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P5_Koda&Ava')
+Kodi.Kaia = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P6_Kodi & Kaia')
+Dax.Fiona = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P7_Dax & Fiona')
+Mason.Coffee = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P8_Mason&Coffee')
+Gunner.Cato = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P9_Gunner&Cato')
+Misha.Houston = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P10_Misha&Houston')
+Rev.Blitz = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P11_Rev&Blitz')
+Jude.Luna = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P12_Jude&Luna')
+```
+
+## Descriptives for the SD Data
+
+### Dax & Fiona 
+
+```{r, message = FALSE}
+#library(mosaic)
+favstats(~Dax.Fiona$`SD (s)`)
+gf_line(Dax.Fiona$`SD (s)`~Dax.Fiona$Session...13) %>% gf_line(Dax.Fiona$`S-Delta (s)`~Dax.Fiona$Session...13, col = 'red')
 ```
 
