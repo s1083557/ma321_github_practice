@@ -30,6 +30,31 @@ Jude.Luna = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P12_Jude&Luna')
 ```{r, message = FALSE}
 #library(mosaic)
 favstats(~Dax.Fiona$`SD (s)`)
+favstats(~Dax.Fiona$`S-Delta (s)`)
 gf_line(Dax.Fiona$`SD (s)`~Dax.Fiona$Session...13) %>% gf_line(Dax.Fiona$`S-Delta (s)`~Dax.Fiona$Session...13, col = 'red')
+```
+
+### Mason & Coffee
+
+```{r}
+favstats(~Mason.Coffee$`SD (Attention)`)
+favstats(~Mason.Coffee$`S-Delta (No Attention)`)
+gf_line(Mason.Coffee$`SD (Attention)`~Mason.Coffee$Session) %>% gf_line(Mason.Coffee$`S-Delta (No Attention)`~ Mason.Coffee$Session, col = 'red')
+```
+
+### Gunner & Cato
+
+```{r}
+favstats(~Gunner.Cato$`SD (Attention)`)
+favstats(~Gunner.Cato$`S-Delta (No Attention)`)
+gf_line(Gunner.Cato$`SD (Attention)`~ Gunner.Cato$Session) %>% gf_line(Gunner.Cato$`S-Delta (No Attention)`~ Gunner.Cato$Session, color = 'red')
+```
+
+### Misha & Houston
+
+```{r}
+favstats(~Misha.Houston$`SD (Attention)...3`)
+favstats(~Misha.Houston$`S-Delta (No Attention)...4`)
+gf_line(Misha.Houston$`SD (Attention)...3`~ Misha.Houston$Session...2) %>% gf_line(Misha.Houston$`S-Delta (No Attention)...4`~Misha.Houston$Session...2, color = 'red')
 ```
 
