@@ -58,3 +58,58 @@ favstats(~Misha.Houston$`S-Delta (No Attention)...4`)
 gf_line(Misha.Houston$`SD (Attention)...3`~ Misha.Houston$Session...2) %>% gf_line(Misha.Houston$`S-Delta (No Attention)...4`~Misha.Houston$Session...2, color = 'red')
 ```
 
+### Rev & Blitz
+
+```{r}
+favstats(~Rev.Blitz$`SD (Attention)`)
+favstats(~Rev.Blitz$`S-Delta (No Attention)`)
+gf_line(Rev.Blitz$`SD (Attention)`~ Rev.Blitz$Session) %>% gf_line(Rev.Blitz$`S-Delta (No Attention)`~ Rev.Blitz$Session, color = 'red')
+```
+
+### Jude & Luna
+
+```{r}
+favstats(~Jude.Luna$`SD (Attention)`)
+favstats(~Jude.Luna$`S-Delta (No Attention)`)
+gf_line(Jude.Luna$`SD (Attention)`~Jude.Luna$Session) %>% gf_line(Jude.Luna$`S-Delta (No Attention)`~Jude.Luna$Session, color = 'red')
+```
+
+
+
+## Loading in EO Data
+
+```{r}
+Dax.Fiona.E0 = read_excel('Play Exp 2 (EO) Data.xlsx', sheet = 'P7_Dax & Fiona')
+Misha.Houston.EO = read_excel('Play Exp 2 (EO) Data.xlsx', sheet = 'P8_Misha&Houston')
+Gunner.Cato.EO = read_excel('Play Exp 2 (EO) Data.xlsx', sheet = 'P9_Gunner&Cato')
+Coffee.Mason.EO = read_excel('Play Exp 2 (EO) Data.xlsx', sheet = 'P10_Coffee&Mason')
+Rev.Blitz.EO = read_excel('Play Exp 2 (EO) Data.xlsx', sheet = 'P11_Rev&Blitz')
+```
+
+## Descriptives for EO Data
+
+### Dax & Fiona
+
+
+## Loading in Reinforced Data
+
+```{r}
+Dax.Fiona.Rein = read_excel('Play Exp 3 (Reinforcer) Data Edited.xlsx', sheet = 'P7_Dax & Fiona')
+Misha.Houston.Rein = read_excel('Play Exp 3 (Reinforcer) Data Edited.xlsx', sheet = 'P8_Misha&Houston')
+Gunner.Cato.Rein = read_excel('Play Exp 3 (Reinforcer) Data Edited.xlsx', sheet = 'P9_Gunner&Cato')
+Coffee.Mason.Rein = read_excel('Play Exp 3 (Reinforcer) Data Edited.xlsx', sheet = 'P10_Coffee&Mason')
+Rev.Blitz.Rein = read_excel('Play Exp 3 (Reinforcer) Data Edited.xlsx', sheet = 'P11_Rev&Blitz')
+```
+
+
+## Descriptives for Reinforced Data
+
+### Dax & Fiona
+
+```{r}
+favstats(Dax.Fiona.Rein$`Attention Control`)
+favstats(Dax.Fiona.Rein$`Attention Test`)
+favstats(Dax.Fiona.Rein$Alone)
+gf_line(Dax.Fiona.Rein$`Attention Control`~Dax.Fiona.Rein$Session) %>% gf_line(Dax.Fiona.Rein$`Attention Test`~ Dax.Fiona.Rein$Session, color = 'red') %>% gf_line(Dax.Fiona.Rein$Alone~Dax.Fiona.Rein$Session, color = 'blue')
+```
+
