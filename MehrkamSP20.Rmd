@@ -31,7 +31,7 @@ Jude.Luna = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P12_Jude&Luna')
 #library(mosaic)
 favstats(~Dax.Fiona$`SD (s)`)
 favstats(~Dax.Fiona$`S-Delta (s)`)
-gf_line(Dax.Fiona$`SD (s)`~Dax.Fiona$Session...13) %>% gf_line(Dax.Fiona$`S-Delta (s)`~Dax.Fiona$Session...13, col = 'red')
+gf_line(Dax.Fiona$`SD (s)`~Dax.Fiona$Session...13) %>% gf_line(Dax.Fiona$`S-Delta (s)`~Dax.Fiona$Session...13, col = 'red') %>% gf_labs(title = 'Dax & Fiona SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
 ```
 
 ### Mason & Coffee
@@ -39,7 +39,7 @@ gf_line(Dax.Fiona$`SD (s)`~Dax.Fiona$Session...13) %>% gf_line(Dax.Fiona$`S-Delt
 ```{r}
 favstats(~Mason.Coffee$`SD (Attention)`)
 favstats(~Mason.Coffee$`S-Delta (No Attention)`)
-gf_line(Mason.Coffee$`SD (Attention)`~Mason.Coffee$Session) %>% gf_line(Mason.Coffee$`S-Delta (No Attention)`~ Mason.Coffee$Session, col = 'red')
+gf_line(Mason.Coffee$`SD (Attention)`~Mason.Coffee$Session) %>% gf_line(Mason.Coffee$`S-Delta (No Attention)`~ Mason.Coffee$Session, col = 'red') %>% gf_labs(title = 'Mason & Coffee SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
 ```
 
 ### Gunner & Cato
@@ -47,7 +47,7 @@ gf_line(Mason.Coffee$`SD (Attention)`~Mason.Coffee$Session) %>% gf_line(Mason.Co
 ```{r}
 favstats(~Gunner.Cato$`SD (Attention)`)
 favstats(~Gunner.Cato$`S-Delta (No Attention)`)
-gf_line(Gunner.Cato$`SD (Attention)`~ Gunner.Cato$Session) %>% gf_line(Gunner.Cato$`S-Delta (No Attention)`~ Gunner.Cato$Session, color = 'red')
+gf_line(Gunner.Cato$`SD (Attention)`~ Gunner.Cato$Session) %>% gf_line(Gunner.Cato$`S-Delta (No Attention)`~ Gunner.Cato$Session, color = 'red') %>% gf_labs(title = 'Gunner & Cato SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
 ```
 
 ### Misha & Houston
@@ -55,7 +55,7 @@ gf_line(Gunner.Cato$`SD (Attention)`~ Gunner.Cato$Session) %>% gf_line(Gunner.Ca
 ```{r}
 favstats(~Misha.Houston$`SD (Attention)...3`)
 favstats(~Misha.Houston$`S-Delta (No Attention)...4`)
-gf_line(Misha.Houston$`SD (Attention)...3`~ Misha.Houston$Session...2) %>% gf_line(Misha.Houston$`S-Delta (No Attention)...4`~Misha.Houston$Session...2, color = 'red')
+gf_line(Misha.Houston$`SD (Attention)...3`~ Misha.Houston$Session...2) %>% gf_line(Misha.Houston$`S-Delta (No Attention)...4`~Misha.Houston$Session...2, color = 'red') %>% gf_labs(title = 'Misha & Houston SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
 ```
 
 ### Rev & Blitz
@@ -63,7 +63,7 @@ gf_line(Misha.Houston$`SD (Attention)...3`~ Misha.Houston$Session...2) %>% gf_li
 ```{r}
 favstats(~Rev.Blitz$`SD (Attention)`)
 favstats(~Rev.Blitz$`S-Delta (No Attention)`)
-gf_line(Rev.Blitz$`SD (Attention)`~ Rev.Blitz$Session) %>% gf_line(Rev.Blitz$`S-Delta (No Attention)`~ Rev.Blitz$Session, color = 'red')
+gf_line(Rev.Blitz$`SD (Attention)`~ Rev.Blitz$Session) %>% gf_line(Rev.Blitz$`S-Delta (No Attention)`~ Rev.Blitz$Session, color = 'red') %>% gf_labs(title = 'Rev & Blitz SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
 ```
 
 ### Jude & Luna
@@ -71,10 +71,12 @@ gf_line(Rev.Blitz$`SD (Attention)`~ Rev.Blitz$Session) %>% gf_line(Rev.Blitz$`S-
 ```{r}
 favstats(~Jude.Luna$`SD (Attention)`)
 favstats(~Jude.Luna$`S-Delta (No Attention)`)
-gf_line(Jude.Luna$`SD (Attention)`~Jude.Luna$Session) %>% gf_line(Jude.Luna$`S-Delta (No Attention)`~Jude.Luna$Session, color = 'red')
+gf_line(Jude.Luna$`SD (Attention)`~Jude.Luna$Session) %>% gf_line(Jude.Luna$`S-Delta (No Attention)`~Jude.Luna$Session, color = 'red') %>% gf_labs(title = 'Jude & Luna SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
 ```
 
 
+
+# 27 February 2020 
 
 ## Loading in EO Data
 
@@ -110,6 +112,7 @@ Rev.Blitz.Rein = read_excel('Play Exp 3 (Reinforcer) Data Edited.xlsx', sheet = 
 favstats(Dax.Fiona.Rein$`Attention Control`)
 favstats(Dax.Fiona.Rein$`Attention Test`)
 favstats(Dax.Fiona.Rein$Alone)
-gf_line(Dax.Fiona.Rein$`Attention Control`~Dax.Fiona.Rein$Session) %>% gf_line(Dax.Fiona.Rein$`Attention Test`~ Dax.Fiona.Rein$Session, color = 'red') %>% gf_line(Dax.Fiona.Rein$Alone~Dax.Fiona.Rein$Session, color = 'blue')
+gf_line(Dax.Fiona.Rein$`Attention Control`~Dax.Fiona.Rein$Session) %>% gf_line(Dax.Fiona.Rein$`Attention Test`~ Dax.Fiona.Rein$Session, color = 'red') %>% gf_line(Dax.Fiona.Rein$Alone~Dax.Fiona.Rein$Session, color = 'blue') %>% gf_labs(title = 'Dax & Fiona Reinforced Experiment', x = 'Session #', y = 'Time Played (Seconds)')
 ```
 
+### 
