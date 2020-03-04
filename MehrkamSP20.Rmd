@@ -115,4 +115,86 @@ favstats(Dax.Fiona.Rein$Alone)
 gf_line(Dax.Fiona.Rein$`Attention Control`~Dax.Fiona.Rein$Session) %>% gf_line(Dax.Fiona.Rein$`Attention Test`~ Dax.Fiona.Rein$Session, color = 'red') %>% gf_line(Dax.Fiona.Rein$Alone~Dax.Fiona.Rein$Session, color = 'blue') %>% gf_labs(title = 'Dax & Fiona Reinforced Experiment', x = 'Session #', y = 'Time Played (Seconds)')
 ```
 
-### 
+# 3 March 2020 
+
+### Misha & Houston
+
+```{r}
+favstats(~Misha.Houston.Rein$`Attention Control`)
+favstats(~Misha.Houston.Rein$`Attention Test`)
+favstats(~Misha.Houston.Rein$Alone)
+gf_line(Misha.Houston.Rein$`Attention Control`~Misha.Houston.Rein$Session) %>% gf_line(Misha.Houston.Rein$`Attention Test`~Misha.Houston.Rein$Session, color = 'red') %>% gf_line(Misha.Houston.Rein$Alone~Misha.Houston.Rein$Session, color = 'blue') %>% gf_labs(title = 'Misha & Houston Reinforcer Experiment', x = 'Session #', y = 'Time Played (Seconds)')
+```
+
+### Gunner & Cato
+
+```{r}
+favstats(~Gunner.Cato.Rein$`Attention Control`)
+favstats(~Gunner.Cato.Rein$`Attention Test`)
+favstats(~Gunner.Cato.Rein$Alone)
+gf_line(Gunner.Cato.Rein$`Attention Control`~Gunner.Cato.Rein$Session) %>% gf_line(Gunner.Cato.Rein$`Attention Test`~Gunner.Cato.Rein$Session, color = 'red') %>% gf_line(Gunner.Cato.Rein$Alone~Gunner.Cato.Rein$Session, color = 'blue') %>% gf_labs(title = 'Gunner & Cato Reinforcer Experiment', x = 'Session #', y = 'Time Played (Seconds)')
+```
+
+### Coffee & Mason 
+
+```{r}
+favstats(~Coffee.Mason.Rein$`Attention Control`)
+favstats(~Coffee.Mason.Rein$`Attention Test`)
+favstats(~Coffee.Mason.Rein$Alone)
+gf_line(Coffee.Mason.Rein$`Attention Control`~Coffee.Mason.Rein$Session) %>% gf_line(Coffee.Mason.Rein$`Attention Test`~Coffee.Mason.Rein$Session, color = 'red') %>% gf_line(Coffee.Mason.Rein$Alone~Coffee.Mason.Rein$Session, color = 'blue') %>% gf_labs(title = 'Coffee & Mason Reinforcer Experiment', x = 'Session #', y = 'Time Played (Seconds)')
+```
+
+### Rev & Blitz
+
+```{r}
+favstats(~Rev.Blitz.Rein$`Attention Control`)
+favstats(~Rev.Blitz.Rein$`Attention Test`)
+favstats(~Rev.Blitz.Rein$Alone)
+gf_line(Rev.Blitz.Rein$`Attention Control`~Rev.Blitz.Rein$Session) %>% gf_line(Rev.Blitz.Rein$`Attention Test`~Rev.Blitz.Rein$Session, color = 'red') %>% gf_line(Rev.Blitz.Rein$Alone~Rev.Blitz.Rein$Session, color = 'blue') %>% gf_labs(title = 'Rev & Blitz Reinforcer Experiment', x = 'Session #', y = 'Time Played (Seconds)') 
+```
+
+## Descriptives for EO Dataset
+
+### Dax & Fiona
+
+```{r}
+par(mfrow = c(1,2))
+barplot(c(17,23,	0,	198), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(0	,4	,0	,192), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+```
+
+### Misha & Houston
+
+```{r}
+par(mfrow = c(1,2))
+barplot(c(26,	99,	4,	71), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(3,	0,	9,	92), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+
+```
+
+### Gunner & Cato
+
+```{r}
+par(mfrow = c(1,2))
+barplot(c(115	,156	,193,	49), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(4	,106,	119,	203), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+
+```
+
+### Coffee & Mason
+
+```{r}
+par(mfrow = c(1,2))
+barplot(c(83	,22,	141	,6), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(12,	2	,0	,1), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+
+```
+
+### Rev & Blitz
+
+```{r}
+par(mfrow = c(1,2))
+barplot(c(5	,3	,8	,14), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(1	,1	,1	,14), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+```
+
