@@ -159,16 +159,16 @@ gf_line(Rev.Blitz.Rein$`Attention Control`~Rev.Blitz.Rein$Session) %>% gf_line(R
 
 ```{r}
 par(mfrow = c(1,2))
-barplot(c(17,23,	0,	198), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
-barplot(c(0	,4	,0	,192), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(17,23,	0,	198), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(0	,4	,0	,192), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
 ```
 
 ### Misha & Houston
 
 ```{r}
 par(mfrow = c(1,2))
-barplot(c(26,	99,	4,	71), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
-barplot(c(3,	0,	9,	92), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(26,	99,	4,	71), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(3,	0,	9,	92), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
 
 ```
 
@@ -176,8 +176,8 @@ barplot(c(3,	0,	9,	92), names.arg = c('0 min', '30 min', '120 min', '>360 min'),
 
 ```{r}
 par(mfrow = c(1,2))
-barplot(c(115	,156	,193,	49), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
-barplot(c(4	,106,	119,	203), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(115	,156	,193,	49), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(4	,106,	119,	203), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
 
 ```
 
@@ -185,8 +185,8 @@ barplot(c(4	,106,	119,	203), names.arg = c('0 min', '30 min', '120 min', '>360 m
 
 ```{r}
 par(mfrow = c(1,2))
-barplot(c(83	,22,	141	,6), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
-barplot(c(12,	2	,0	,1), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(83	,22,	141	,6), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(12,	2	,0	,1), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
 
 ```
 
@@ -194,7 +194,7 @@ barplot(c(12,	2	,0	,1), names.arg = c('0 min', '30 min', '120 min', '>360 min'),
 
 ```{r}
 par(mfrow = c(1,2))
-barplot(c(5	,3	,8	,14), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
-barplot(c(1	,1	,1	,14), names.arg = c('0 min', '30 min', '120 min', '>360 min'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(5	,3	,8	,14), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
+barplot(c(1	,1	,1	,14), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
 ```
 
