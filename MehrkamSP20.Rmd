@@ -198,3 +198,55 @@ barplot(c(5	,3	,8	,14), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300)
 barplot(c(1	,1	,1	,14), names.arg = c('0', '30', '120', '>360'), ylim = c(0,300), xlab = 'Owner Deprivation (min)', ylab = 'Time Played (Seconds)',col = rainbow(4))
 ```
 
+# 4 March 2020
+
+## Wilcox tests for SD Data 
+
+### Dax and Fiona
+
+```{r}
+wilcox.test(Dax.Fiona$`SD (s)`, Dax.Fiona$`S-Delta (s)`, alternative = c('two.sided'))
+```
+The Mann Whitney U test shows a p-value of 0.0063, which is significant enough in terms of the exact alpha value to reject the null hypothesis. We can conclude that the distributions of the SD and S-delta are different for Dax and Fiona. 
+
+# 24 March 2020
+
+### Misha & Houston
+
+```{r}
+wilcox.test(Misha.Houston$`SD (Attention)...22`, Misha.Houston$`S-Delta (No Attention)...23`, alternative = 'two.sided')
+```
+The Mann Whitney U test shows a p-value of 0.0034, which is significant enough in terms of the exact alpha value to reject the null hypothesis. We can conclude that the distributions of the SD and S-delta are different for Misha and Houston
+
+### Gunner & Cato
+
+```{r}
+wilcox.test(Gunner.Cato$`SD (Attention)`, Gunner.Cato$`S-Delta (No Attention)`, alternative = 'two.sided')
+```
+The Mann Whitney U test shows a p-value of 0.0058, which is significant enough in terms of the exact alpha value to reject the null hypothesis. We can conclude that the distributions of the SD and S-delta are different for Gunner & Cato
+
+### Coffee & Mason
+
+```{r}
+wilcox.test(Mason.Coffee$`SD (Attention)`, Mason.Coffee$`S-Delta (No Attention)`, alternative = 'two.sided')
+```
+The Mann Whitney U test shows a p-value of 0.0034, which is significant enough in terms of the exact alpha value to reject the null hypothesis. We can conclude that the distributions of the SD and S-delta are different for Mason and Coffee. 
+
+### Rev & Blitz
+
+```{r}
+wilcox.test(Rev.Blitz$`SD (Attention)`, Rev.Blitz$`S-Delta (No Attention)`, alternative = 'two.sided')
+```
+The Mann Whitney U test shows a p-value of 0.00045, which is significant enough in terms of the exact alpha value to reject the null hypothesis. We can conclude that the distributions of the SD and S-delta are different for Rev and Blitz. 
+
+## Kruskall-Wallis Tests for Reinforced Data
+
+### Dax & Fiona
+
+```{r}
+library(dunn.test)
+kruskal.test(Dax.Fiona.Rein$`Attention Control`, Dax.Fiona.Rein$`Attention Test`, Dax.Fiona.Rein$Alone)
+dunn.test(Dax.Fiona.Rein$`Attention Control`, Dax.Fiona.Rein$`Attention Test`, Dax.Fiona.Rein$Alone)
+```
+
+
