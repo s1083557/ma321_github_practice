@@ -29,34 +29,38 @@ Jude.Luna = read_excel('Play Exp 1 (SD) Data.xlsx', sheet = 'P12_Jude&Luna')
 
 ```{r, message = FALSE}
 #library(mosaic)
-favstats(~Dax.Fiona$`SD (s)`)
-favstats(~Dax.Fiona$`S-Delta (s)`)
-gf_line(Dax.Fiona$`SD (s)`~Dax.Fiona$Session...13) %>% gf_line(Dax.Fiona$`S-Delta (s)`~Dax.Fiona$Session...13, col = 'red') %>% gf_labs(title = 'Dax & Fiona SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
+favstats(~Dax.Fiona$`SD (s)`) # stats for SD (Owner Attention)
+favstats(~Dax.Fiona$`S-Delta (s)`) # stats for S-Delta (No Attention)
+gf_line(Dax.Fiona$`SD (s)`~Dax.Fiona$Session...13) %>% gf_line(Dax.Fiona$`S-Delta (s)`~Dax.Fiona$Session...13, col = 'red') %>% gf_labs(title = 'Dax & Fiona SD Experiment', x = 'Session #', y = 'Time Played (Seconds)') #Puts both SD and S-Delta on a line graph to see the difference over the 10 sessions 
 ```
+It appears that Dax & Fiona exhibited more playing time on average when there was owner attention involved than when there was no owner attention. The SD data has a mean of 107 and a stdev of 68.64 which is large. The S-Delta data has a mean of 21.5 and a stdev of 48.65 which is also high. 
 
 ### Mason & Coffee
 
 ```{r}
-favstats(~Mason.Coffee$`SD (Attention)`)
-favstats(~Mason.Coffee$`S-Delta (No Attention)`)
-gf_line(Mason.Coffee$`SD (Attention)`~Mason.Coffee$Session) %>% gf_line(Mason.Coffee$`S-Delta (No Attention)`~ Mason.Coffee$Session, col = 'red') %>% gf_labs(title = 'Mason & Coffee SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
+favstats(~Mason.Coffee$`SD (Attention)`) # stats for SD (Owner Attention)
+favstats(~Mason.Coffee$`S-Delta (No Attention)`) # stats for S-Delta (No Attention)
+gf_line(Mason.Coffee$`SD (Attention)`~Mason.Coffee$Session) %>% gf_line(Mason.Coffee$`S-Delta (No Attention)`~ Mason.Coffee$Session, col = 'red') %>% gf_labs(title = 'Mason & Coffee SD Experiment', x = 'Session #', y = 'Time Played (Seconds)') #Puts both SD and S-Delta on a line graph to see the difference over the 10 sessions 
 ```
+It appears that Coffee and Mason played the same amount with or without attention for the first few sessions. As the sessions went on though, the continued to play with owner attention and stopped playing without owner attention. The SD data has a mean of 42.7 with a stdev of 26.62, and the S-Delta dataset has a mean of 10.1 and a stdev of 27.6. Variation is less in coffee and mason than in Dax and Fiona. 
 
 ### Gunner & Cato
 
 ```{r}
-favstats(~Gunner.Cato$`SD (Attention)`)
-favstats(~Gunner.Cato$`S-Delta (No Attention)`)
-gf_line(Gunner.Cato$`SD (Attention)`~ Gunner.Cato$Session) %>% gf_line(Gunner.Cato$`S-Delta (No Attention)`~ Gunner.Cato$Session, color = 'red') %>% gf_labs(title = 'Gunner & Cato SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
+favstats(~Gunner.Cato$`SD (Attention)`) # stats for SD (Owner Attention)
+favstats(~Gunner.Cato$`S-Delta (No Attention)`) # stats for S-Delta (No Attention)
+gf_line(Gunner.Cato$`SD (Attention)`~ Gunner.Cato$Session) %>% gf_line(Gunner.Cato$`S-Delta (No Attention)`~ Gunner.Cato$Session, color = 'red') %>% gf_labs(title = 'Gunner & Cato SD Experiment', x = 'Session #', y = 'Time Played (Seconds)') #Puts both SD and S-Delta on a line graph to see the difference over the 10 sessions
 ```
+Both the SD and S-Delta trends seem to go all over the place throughout the 10 sessions, but on average it appears that Gunner and Cato play more with owner attention than without owner attention. The SD data has an average of 154.3 and a stdev of 68.012
 
 ### Misha & Houston
 
 ```{r}
-favstats(~Misha.Houston$`SD (Attention)...3`)
-favstats(~Misha.Houston$`S-Delta (No Attention)...4`)
-gf_line(Misha.Houston$`SD (Attention)...3`~ Misha.Houston$Session...2) %>% gf_line(Misha.Houston$`S-Delta (No Attention)...4`~Misha.Houston$Session...2, color = 'red') %>% gf_labs(title = 'Misha & Houston SD Experiment', x = 'Session #', y = 'Time Played (Seconds)')
+favstats(~Misha.Houston$`SD (Attention)...3`) # stats for SD (Owner Attention)
+favstats(~Misha.Houston$`S-Delta (No Attention)...4`) # stats for S-Delta (No Attention)
+gf_line(Misha.Houston$`SD (Attention)...3`~ Misha.Houston$Session...2) %>% gf_line(Misha.Houston$`S-Delta (No Attention)...4`~Misha.Houston$Session...2, color = 'red') %>% gf_labs(title = 'Misha & Houston SD Experiment', x = 'Session #', y = 'Time Played (Seconds)') #Puts both SD and S-Delta on a line graph to see the difference over the 10 sessions
 ```
+The SD and S-Delta trends follow a similar pattern throughout the 10 sessions, but the SD data shows more playtime throughout the sessions. The mean SD time was 189 and a stdev of 53.223 and the S-delta time has a mean of 17.5 and a stdev of 53.607.
 
 ### Rev & Blitz
 
@@ -246,7 +250,7 @@ The Mann Whitney U test shows a p-value of 0.00045, which is significant enough 
 ```{r}
 library(dunn.test)
 kruskal.test(Dax.Fiona.Rein$`Attention Control`, Dax.Fiona.Rein$`Attention Test`, Dax.Fiona.Rein$Alone)
-dunn.test(Dax.Fiona.Rein$`Attention Control`, Dax.Fiona.Rein$`Attention Test`, Dax.Fiona.Rein$Alone)
+dunn.test(c(Dax.Fiona.Rein$`Attention Control`[1:6], Dax.Fiona.Rein$`Attention Test`[1:6], Dax.Fiona.Rein$Alone[1:6]), g = c(rep(1,6), rep(2,6), rep(3,6)))
 ```
 
 

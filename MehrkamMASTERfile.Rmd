@@ -1,0 +1,57 @@
+---
+title: "R Notebook"
+author: Jett Vernaci & Sonny Timpani
+output: html_notebook
+---
+
+# 26 March 2020
+
+## Package Loading 
+```{r, message = FALSE}
+library(mosaic)
+```
+
+## Data Loading
+
+```{r}
+#SD.MASTER <- 
+EO.MASTER <- read_excel('Play Exp 2 (EO) Data MASTER.xlsx', sheet = 'MASTER')
+Reinforced.MASTER <- read_excel('Play Exp 3 (Reinforcer) Data MASTER.xlsx', sheet = 'Master Reinforcer')
+```
+Loaded in all of the master datasets containing the data consolidated into one sheet to make it easier to test all groups at once in R
+
+## Descriptives
+
+### Overall Statistics 
+
+#### SD Dataset
+
+```{r}
+#Sonny 
+```
+
+
+#### EO Dataset
+
+```{r}
+favstats(~EO.MASTER$`0 min`)
+favstats(~EO.MASTER$`30min`)
+favstats(~EO.MASTER$`120min`)
+favstats(~EO.MASTER$`>360min`)
+gf_histogram(~EO.MASTER$`0 min`) %>% gf_labs(x = 'Time Played (Seconds)')
+gf_histogram(~EO.MASTER$`30min`) %>% gf_labs(x = 'Time Played (Seconds)')
+gf_histogram(~EO.MASTER$`120min`) %>% gf_labs(x = 'Time Played (Seconds)')
+gf_histogram(~EO.MASTER$`>360min`) %>% gf_labs(x = 'Time Played (Seconds)')
+```
+One thing to notice in the favstats outputs is that on average the amount of playing time seems to be increasing as owner deprivation increases. Another thing to notice is that the standard deviation is also increasing as owner deprivation increases, meaning that there is more variation in the data as owner deprivation goes up. When the histograms are plotted for the overall data, it is clear that the data is not normal, and we will need to use non-parametric tests to run the analyses.
+
+#### Reinforcer Dataset
+
+
+### Descriptive Statistics by Sesssion Number
+
+
+### Descriptive Statistics by Dog Pair
+
+
+
