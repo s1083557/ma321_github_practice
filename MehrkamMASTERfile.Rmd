@@ -85,17 +85,17 @@ favstats(~EO.MASTER$`0 min` | EO.MASTER$Session)
 favstats(~EO.MASTER$`30min` | EO.MASTER$Session)
 favstats(~EO.MASTER$`120min` | EO.MASTER$Session)
 favstats(~EO.MASTER$`>360min` | EO.MASTER$Session)
-
 ```
 
 #### Reinforced Dataset
 
 ```{r}
-
+favstats(~Reinforced.MASTER$`Attention Control` | Reinforced.MASTER$`Session #`)
+favstats(~Reinforced.MASTER$`Attention Test` | Reinforced.MASTER$`Session #`)
+favstats(~Reinforced.MASTER$Alone | Reinforced.MASTER$`Session #`)
 ```
 
 
-### Descriptive Statistics by Dog Pair
 
 
 
