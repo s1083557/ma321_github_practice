@@ -46,10 +46,10 @@ favstats(~EO.MASTER$`0 min`) # Descriptives for the 0 minute data
 favstats(~EO.MASTER$`30min`) # Descriptives for the 30 minute data
 favstats(~EO.MASTER$`120min`) # Descriptives for the 120 minute data
 favstats(~EO.MASTER$`>360min`) # Descriptives for the >360 minute data 
-gf_histogram(~EO.MASTER$`0 min`) %>% gf_labs(x = 'Time Played (Seconds)') # Histogram for the 0 minute data
-gf_histogram(~EO.MASTER$`30min`) %>% gf_labs(x = 'Time Played (Seconds)') # Histogram for the 30 minute data
-gf_histogram(~EO.MASTER$`120min`) %>% gf_labs(x = 'Time Played (Seconds)') # Histogram for the 120 minute data
-gf_histogram(~EO.MASTER$`>360min`) %>% gf_labs(x = 'Time Played (Seconds)') # Histogram for the >360 minute data
+gf_histogram(~EO.MASTER$`0 min`) %>% gf_labs(x = 'Time Played (Seconds)',  title = '0 Minutes of Owner Deprivation Histogram') # Histogram for the 0 minute data
+gf_histogram(~EO.MASTER$`30min`) %>% gf_labs(x = 'Time Played (Seconds)', title = '30 Minutes of Owner Deprivation Histogram') # Histogram for the 30 minute data
+gf_histogram(~EO.MASTER$`120min`) %>% gf_labs(x = 'Time Played (Seconds)',  title = '120 Minutes of Owner Deprivation Histogram') # Histogram for the 120 minute data
+gf_histogram(~EO.MASTER$`>360min`) %>% gf_labs(x = 'Time Played (Seconds)',  title = '>360 Minutes of Owner Deprivation Histogram') # Histogram for the >360 minute data
 ```
 One thing to notice in the favstats outputs is that on average the amount of playing time seems to be increasing as owner deprivation increases. Another thing to notice is that the standard deviation is also increasing as owner deprivation increases, meaning that there is more variation in the data as owner deprivation goes up. When the histograms are plotted for the overall data, it is clear that the data is not normal, and we will need to use non-parametric tests to run the analyses.
 
