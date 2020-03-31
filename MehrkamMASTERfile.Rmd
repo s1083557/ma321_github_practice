@@ -9,6 +9,7 @@ output: html_notebook
 ## Package Loading 
 ```{r, message = FALSE}
 library(mosaic)
+install.packages('readxl')
 library(readxl)
 ```
 
@@ -75,7 +76,8 @@ When looking at the descriptive statistics for the Reinforced data, it appears t
 #### SD Dataset
 
 ```{r}
-#Sonny
+favstats(~SD.Master$`SD (s)` | SD.Master$`Session #`)
+favstats(~SD.Master$`S-Delta (s)` | SD.Master$`Session #`)
 ```
 
 #### EO Dataset
@@ -94,8 +96,19 @@ favstats(~EO.MASTER$`>360min` | EO.MASTER$Session)
 
 ```
 
+### Mann-Whitney U Test Analysis
 
-### Descriptive Statistics by Dog Pair
+#### SD Dataset
+```{r}
+wilcox.test(SD.Master$`SD (s)`, SD.Master$`S-Delta (s)`, alternative = c("two.sided"))
+```
+The Mann-Whitney U test shows a p-value of 2.2e-16 which is significant enough to reject the null hypothesis. We can conclude that the distributions of the SD and S-Delta are different for all dog pairs.
+
+
+#### EO Dataset
+
+
+#### Reinforced Dataset
 
 
 
