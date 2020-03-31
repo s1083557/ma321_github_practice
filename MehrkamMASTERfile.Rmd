@@ -83,20 +83,29 @@ favstats(~SD.Master$`S-Delta (s)` | SD.Master$`Session #`)
 #### EO Dataset
 
 ```{r}
-favstats(~EO.MASTER$`0 min` | EO.MASTER$Session)
-favstats(~EO.MASTER$`30min` | EO.MASTER$Session)
-favstats(~EO.MASTER$`120min` | EO.MASTER$Session)
-favstats(~EO.MASTER$`>360min` | EO.MASTER$Session)
-
+favstats(~EO.MASTER$`0 min` | EO.MASTER$Session) # 0 min data by session number
+favstats(~EO.MASTER$`30min` | EO.MASTER$Session) # 30 min data by session number
+favstats(~EO.MASTER$`120min` | EO.MASTER$Session) # 120 min data by session number 
+favstats(~EO.MASTER$`>360min` | EO.MASTER$Session) # >360 min data by session number
 ```
+When looking at each of the time intervals by session number, the descriptives show that session one had more playing time than session two for all intervals of owner deprivation except for the >360 min time interval. 
+
+All of the standard deviations across both sessions for each time interval are largem, indicating that the amount of playtimes shown by the dogs have a lot of variation. 
+
+The dogs seem to play the most on average when their owner has been away for 120 minutes in the first session, but then in the second session they played the most on average when the owner had been away for >360 min. 
 
 #### Reinforced Dataset
 
 ```{r}
-
+favstats(~Reinforced.MASTER$`Attention Control` | Reinforced.MASTER$`Session #`) # Attention Control data descriptives when splitting by session number 
+favstats(~Reinforced.MASTER$`Attention Test` | Reinforced.MASTER$`Session #`) # Attention Test data descriptives when splitting by session number 
+favstats(~Reinforced.MASTER$Alone | Reinforced.MASTER$`Session #`) # Alone data descriptives when splitting by session number
 ```
+For the attention control data, the session that showed the most playtime on average was session 2, and the session that showed the least amount of playtime on average was session 1. For the attention test data, the session that showed the most playtime on average was session 2, and the session that showed the least amount of playtime on average was session 3. Lastly, for the alone dataset, the session with the highest playtime on average was session 5 and the session that showed the least amount of playtime on average was session 3. 
 
-### Mann-Whitney U Test Analysis
+## Data Analysis 
+
+### Mann-Whitney U Test on the SD Data
 
 #### SD Dataset
 ```{r}
@@ -109,6 +118,8 @@ The Mann-Whitney U test shows a p-value of 2.2e-16 which is significant enough t
 
 
 #### Reinforced Dataset
+=======
+>>>>>>> 8bbdc83f727e9cafbadef4ad0583d26a41a7771a
 
 
 
