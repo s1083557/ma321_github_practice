@@ -14,7 +14,7 @@ library(mosaic)
 ## Data Loading
 
 ```{r}
-#SD.MASTER <- 
+SD.Master = read_excel('SD_Data_MASTER.xlsx', sheet = 'SD Master')
 EO.MASTER <- read_excel('Play Exp 2 (EO) Data MASTER.xlsx', sheet = 'MASTER')
 Reinforced.MASTER <- read_excel('Play Exp 3 (Reinforcer) Data MASTER.xlsx', sheet = 'Master Reinforcer')
 ```
@@ -27,26 +27,42 @@ Loaded in all of the master datasets containing the data consolidated into one s
 #### SD Dataset
 
 ```{r}
-#Sonny 
+favstats(~SD.Master$`SD (s)`) # Descriptive Stats for SD Data (Owner Attention)
+favstats(~SD.Master$`S-Delta (s)`) # Descriptive Stats for S-Delta (No Attention)
+gf_histogram(~SD.Master$`SD (s)`) %>% gf_labs(x = 'Time Played (Seconds)', title = 'SD (s) Histogram') # Histogram containing the distribution of SD data 
+gf_histogram(~SD.Master$`S-Delta (s)`) %>% gf_labs(x = 'Time Played (Seconds)', title = 'S-Delta (s) Histogram') # Histogram containing the distribution of S-Delta data 
 ```
+Above are the descriptive statistics of the overall SD master files. The first histogram for SD (s) indicates data that is not normal because it is not a a symmetric histogram. It appears to have a right tail that is stretched thus being positively skewed. 
 
+The second histogram for S-Delta (s) indicates data that is not normalized. Majority of the data is congested on the left side between 0 and 20 seconds. 
+
+Higher mean and standard deviation for SD data than S-Delta data. This makes sense because there is less playing time among the dogs that were given no attention. 
 
 #### EO Dataset
 
 ```{r}
-favstats(~EO.MASTER$`0 min`)
-favstats(~EO.MASTER$`30min`)
-favstats(~EO.MASTER$`120min`)
-favstats(~EO.MASTER$`>360min`)
-gf_histogram(~EO.MASTER$`0 min`) %>% gf_labs(x = 'Time Played (Seconds)')
-gf_histogram(~EO.MASTER$`30min`) %>% gf_labs(x = 'Time Played (Seconds)')
-gf_histogram(~EO.MASTER$`120min`) %>% gf_labs(x = 'Time Played (Seconds)')
-gf_histogram(~EO.MASTER$`>360min`) %>% gf_labs(x = 'Time Played (Seconds)')
+favstats(~EO.MASTER$`0 min`) # Descriptives for the 0 minute data 
+favstats(~EO.MASTER$`30min`) # Descriptives for the 30 minute data
+favstats(~EO.MASTER$`120min`) # Descriptives for the 120 minute data
+favstats(~EO.MASTER$`>360min`) # Descriptives for the >360 minute data 
+gf_histogram(~EO.MASTER$`0 min`) %>% gf_labs(x = 'Time Played (Seconds)') # Histogram for the 0 minute data
+gf_histogram(~EO.MASTER$`30min`) %>% gf_labs(x = 'Time Played (Seconds)') # Histogram for the 30 minute data
+gf_histogram(~EO.MASTER$`120min`) %>% gf_labs(x = 'Time Played (Seconds)') # Histogram for the 120 minute data
+gf_histogram(~EO.MASTER$`>360min`) %>% gf_labs(x = 'Time Played (Seconds)') # Histogram for the >360 minute data
 ```
 One thing to notice in the favstats outputs is that on average the amount of playing time seems to be increasing as owner deprivation increases. Another thing to notice is that the standard deviation is also increasing as owner deprivation increases, meaning that there is more variation in the data as owner deprivation goes up. When the histograms are plotted for the overall data, it is clear that the data is not normal, and we will need to use non-parametric tests to run the analyses.
 
 #### Reinforcer Dataset
 
+```{r}
+favstats(~Reinforced.MASTER$`Attention Control`) # Descriptive stats for the Attention Control data which is random attention 
+favstats(~Reinforced.MASTER$`Attention Test`) # Descriptive stats for the Attention Test data which is attention given only when something positive or negative happens
+favstats(~Reinforced.MASTER$Alone) # Descriptive stats for the Alone data which is the dogs in a room with no humans, just a tripod 
+gf_histogram(~Reinforced.MASTER$`Attention Control`) %>% gf_labs(x = 'Time Played (Seconds)', title = 'Reinforced Data Attention Control Histogram') # Histogram of the Attention Control data
+gf_histogram(~Reinforced.MASTER$`Attention Test`) %>% gf_labs(x = 'Time Played (Seconds)', title = 'Reinforced Data Attention Test Histogram') # Histogram of the Attention Test data
+gf_histogram(~Reinforced.MASTER$Alone) %>% gf_labs(x = 'Time Played (Seconds)', title = 'Reinforced Data Alone Histogram') # Histogram of the Alone data
+```
+When looking at the descriptive statistics for the Reinforced data, it appears that the Attention Control sessions saw the most play time, followed by the alone and attention test sessions. This makes sense since random attention always makes a dog more excited, whereas attention when a dog does something nwgative may make the dog less excited and not willing to play. All of the histograms show a very skewed right distribution, therefore the Kruskal Wallis test must be used to analyze this data. 
 
 ### Descriptive Statistics by Sesssion Number
 
