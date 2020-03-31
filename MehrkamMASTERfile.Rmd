@@ -9,6 +9,7 @@ output: html_notebook
 ## Package Loading 
 ```{r, message = FALSE}
 library(mosaic)
+library(readxl)
 ```
 
 ## Data Loading
@@ -52,6 +53,8 @@ gf_histogram(~EO.MASTER$`>360min`) %>% gf_labs(x = 'Time Played (Seconds)') # Hi
 ```
 One thing to notice in the favstats outputs is that on average the amount of playing time seems to be increasing as owner deprivation increases. Another thing to notice is that the standard deviation is also increasing as owner deprivation increases, meaning that there is more variation in the data as owner deprivation goes up. When the histograms are plotted for the overall data, it is clear that the data is not normal, and we will need to use non-parametric tests to run the analyses.
 
+# 30 March 2020
+
 #### Reinforcer Dataset
 
 ```{r}
@@ -64,7 +67,32 @@ gf_histogram(~Reinforced.MASTER$Alone) %>% gf_labs(x = 'Time Played (Seconds)', 
 ```
 When looking at the descriptive statistics for the Reinforced data, it appears that the Attention Control sessions saw the most play time, followed by the alone and attention test sessions. This makes sense since random attention always makes a dog more excited, whereas attention when a dog does something nwgative may make the dog less excited and not willing to play. All of the histograms show a very skewed right distribution, therefore the Kruskal Wallis test must be used to analyze this data. 
 
+
+# 31 March 2020
+
 ### Descriptive Statistics by Sesssion Number
+
+#### SD Dataset
+
+```{r}
+#Sonny
+```
+
+#### EO Dataset
+
+```{r}
+favstats(~EO.MASTER$`0 min` | EO.MASTER$Session)
+favstats(~EO.MASTER$`30min` | EO.MASTER$Session)
+favstats(~EO.MASTER$`120min` | EO.MASTER$Session)
+favstats(~EO.MASTER$`>360min` | EO.MASTER$Session)
+
+```
+
+#### Reinforced Dataset
+
+```{r}
+
+```
 
 
 ### Descriptive Statistics by Dog Pair
