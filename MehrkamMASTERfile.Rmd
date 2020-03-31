@@ -116,10 +116,18 @@ The Mann-Whitney U test shows a p-value of 2.2e-16 which is significant enough t
 
 #### EO Dataset
 
+```{r}
+
+```
+
 
 #### Reinforced Dataset
-=======
->>>>>>> 8bbdc83f727e9cafbadef4ad0583d26a41a7771a
+
+```{r}
+Rein.Master.2 <- read_excel('Play Exp 3 (Reinforcer) Data MASTER2.xlsx', sheet = 'Master Reinforcer')
+#friedman.test(y = Rein.Master.2$`Time Played (Sec)`, groups = Rein.Master.2$`Group #`, blocks = Rein.Master.2$`Sample #`)
+```
+
 
 
 
