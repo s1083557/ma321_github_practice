@@ -117,7 +117,8 @@ The Mann-Whitney U test shows a p-value of 2.2e-16 which is significant enough t
 #### EO Dataset
 
 ```{r}
-
+EO.Master.2 <- read_excel('EO_2_Data.xlsx' , sheet = 'EO Master Averages')
+#friedman.test(y = EO.Master.2$'Average Time Played (Sec)' , groups = EO.Master.2$'Group #'))
 ```
 
 
