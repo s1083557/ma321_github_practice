@@ -1894,46 +1894,239 @@ favstats(~Reinforced.MASTER$Alone | Reinforced.MASTER$`Session #`) # Alone data 
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoU0QuTWFzdGVyJGBTRCAocylgLCBTRC5NYXN0ZXIkYFMtRGVsdGEgKHMpYCwgYWx0ZXJuYXRpdmUgPSBjKFwidHdvLnNpZGVkXCIpKVxuYGBgIn0= -->
 <pre class="r"><code>wilcox.test(SD.Master$`SD (s)`, SD.Master$`S-Delta (s)`, alternative = c(&quot;two.sided&quot;))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHJhbmsgc3VtIHRlc3Qgd2l0aCBjb250aW51aXR5IGNvcnJlY3Rpb25cblxuZGF0YTogIFNELk1hc3RlciRgU0QgKHMpYCBhbmQgU0QuTWFzdGVyJGBTLURlbHRhIChzKWBcblcgPSAxMTkzNiwgcC12YWx1ZSA8IDIuMmUtMTZcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbG9jYXRpb24gc2hpZnQgaXMgbm90IGVxdWFsIHRvIDBcbiJ9 -->
-<pre><code>
-    Wilcoxon rank sum test with continuity correction
-
-data:  SD.Master$`SD (s)` and SD.Master$`S-Delta (s)`
-W = 11936, p-value &lt; 2.2e-16
-alternative hypothesis: true location shift is not equal to 0</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>The Mann-Whitney U test shows a p-value of 2.2e-16 which is significant enough to reject the null hypothesis. We can conclude that the distributions of the SD and S-Delta are different for all dog pairs.</p>
 </div>
+</div>
+</div>
+</div>
+<div id="april-2020" class="section level1">
+<h1>2 April 2020</h1>
 <div id="eo-dataset-2" class="section level4">
 <h4>EO Dataset</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRU8uTWFzdGVyLjIgPC0gcmVhZF9leGNlbCgnRU9fMl9EYXRhLnhsc3gnICwgc2hlZXQgPSAnRU8gTWFzdGVyIEF2ZXJhZ2VzJylcbiNmcmllZG1hbi50ZXN0KHkgPSBFTy5NYXN0ZXIuMiQnQXZlcmFnZSBUaW1lIFBsYXllZCAoU2VjKScgLCBncm91cHMgPSBFTy5NYXN0ZXIuMiQnR3JvdXAgIycpKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRU8uTWFzdGVyLjIgPC0gcmVhZF9leGNlbCgnRU9fMl9EYXRhLnhsc3gnICwgc2hlZXQgPSAnRU8gTWFzdGVyIEF2ZXJhZ2VzJylcbmZyaWVkbWFuLnRlc3QoeSA9IEVPLk1hc3Rlci4yJCdBdmVyYWdlIFRpbWUgUGxheWVkIChTZWMpJyAsIGdyb3VwcyA9IEVPLk1hc3Rlci4yJCdHcm91cCAjJyAsIGJsb2NrcyA9IEVPLk1hc3Rlci4yJCdEb2cgUGFpciAjJykgIyBGcmllZG1hbiB0ZXN0IHRvIGNvbXBhcmUgbWVkaWFucyBvZiB0aGUgZm91ciB0aW1lIGludGVydmFsIGdyb3VwcyBvZiAwIG1pbiwgMzAgbWluLCAxMjAgbWluLCBhbmQgZ3JlYXRlciB0aGFuIDM2MCBtaW4uXG5gYGAifQ== -->
 <pre class="r"><code>EO.Master.2 &lt;- read_excel(&#39;EO_2_Data.xlsx&#39; , sheet = &#39;EO Master Averages&#39;)
-#friedman.test(y = EO.Master.2$&#39;Average Time Played (Sec)&#39; , groups = EO.Master.2$&#39;Group #&#39;))</code></pre>
+friedman.test(y = EO.Master.2$&#39;Average Time Played (Sec)&#39; , groups = EO.Master.2$&#39;Group #&#39; , blocks = EO.Master.2$&#39;Dog Pair #&#39;) # Friedman test to compare medians of the four time interval groups of 0 min, 30 min, 120 min, and greater than 360 min.</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdEZyaWVkbWFuIHJhbmsgc3VtIHRlc3RcblxuZGF0YTogIEVPLk1hc3Rlci4yJFwiQXZlcmFnZSBUaW1lIFBsYXllZCAoU2VjKVwiLCBFTy5NYXN0ZXIuMiRcIkdyb3VwICNcIiBhbmQgRU8uTWFzdGVyLjIkXCJEb2cgUGFpciAjXCJcbkZyaWVkbWFuIGNoaS1zcXVhcmVkID0gMC40Mjg1NywgZGYgPSAzLCBwLXZhbHVlID1cbjAuOTM0M1xuIn0= -->
+<pre><code>
+    Friedman rank sum test
+
+data:  EO.Master.2$&quot;Average Time Played (Sec)&quot;, EO.Master.2$&quot;Group #&quot; and EO.Master.2$&quot;Dog Pair #&quot;
+Friedman chi-squared = 0.42857, df = 3, p-value =
+0.9343</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IEVPLk1BU1RFUiRgMCBtaW5gICwgeSA9IEVPLk1BU1RFUiQnMzBtaW4nICwgcGFpcmVkID0gVFJVRSwgY29uZi5pbnQgPSBUUlVFKSAjIEEgcG9zdCBob2MgdGVzdCBjb21wYXJpbmcgMCBtaW4gYW5kIDMwIG1pbiBwYWlyd2lzZS4gXG5gYGAifQ== -->
+<pre class="r"><code>wilcox.test(x = EO.MASTER$`0 min` , y = EO.MASTER$&#39;30min&#39; , paired = TRUE, conf.int = TRUE) # A post hoc test comparing 0 min and 30 min pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHRpZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggdGllc2Nhbm5vdCBjb21wdXRlIGV4YWN0IHAtdmFsdWUgd2l0aCB6ZXJvZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggemVyb2VzXG4ifQ== -->
+<pre><code>cannot compute exact p-value with tiescannot compute exact confidence interval with tiescannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIEVPLk1BU1RFUiRgMCBtaW5gIGFuZCBFTy5NQVNURVIkXCIzMG1pblwiXG5WID0gMjkuNSwgcC12YWx1ZSA9IDAuNDhcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbG9jYXRpb24gc2hpZnQgaXMgbm90IGVxdWFsIHRvIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAtNDEuNDk5OTMgIDMxLjk5OTk1XG5zYW1wbGUgZXN0aW1hdGVzOlxuKHBzZXVkbyltZWRpYW4gXG4gICAgIC02LjAwMDAyMSBcbiJ9 -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  EO.MASTER$`0 min` and EO.MASTER$&quot;30min&quot;
+V = 29.5, p-value = 0.48
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -41.49993  31.99995
+sample estimates:
+(pseudo)median 
+     -6.000021 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IEVPLk1BU1RFUiRgMCBtaW5gICwgeSA9IEVPLk1BU1RFUiQnMTIwbWluJyAsIHBhaXJlZCA9IFRSVUUsIGNvbmYuaW50ID0gVFJVRSkgIyBBIHBvc3QgaG9jIHRlc3QgY29tcGFyaW5nIDAgbWluIGFuZCAxMjAgbWluIHBhaXJ3aXNlLiBcbmBgYCJ9 -->
+<pre class="r"><code>wilcox.test(x = EO.MASTER$`0 min` , y = EO.MASTER$&#39;120min&#39; , paired = TRUE, conf.int = TRUE) # A post hoc test comparing 0 min and 120 min pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHRpZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggdGllc2Nhbm5vdCBjb21wdXRlIGV4YWN0IHAtdmFsdWUgd2l0aCB6ZXJvZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggemVyb2VzXG4ifQ== -->
+<pre><code>cannot compute exact p-value with tiescannot compute exact confidence interval with tiescannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIEVPLk1BU1RFUiRgMCBtaW5gIGFuZCBFTy5NQVNURVIkXCIxMjBtaW5cIlxuViA9IDMyLjUsIHAtdmFsdWUgPSAwLjYzNzdcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbG9jYXRpb24gc2hpZnQgaXMgbm90IGVxdWFsIHRvIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAtNDYuNDk5OTUgIDE3LjAwMDA0XG5zYW1wbGUgZXN0aW1hdGVzOlxuKHBzZXVkbyltZWRpYW4gXG4gICAgICAtNS43NjIxOCBcbiJ9 -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  EO.MASTER$`0 min` and EO.MASTER$&quot;120min&quot;
+V = 32.5, p-value = 0.6377
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -46.49995  17.00004
+sample estimates:
+(pseudo)median 
+      -5.76218 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IEVPLk1BU1RFUiRgMCBtaW5gICwgeSA9IEVPLk1BU1RFUiRgPjM2MG1pbmAgLCBwYWlyZWQgPSBUUlVFLCBjb25mLmludCA9IFRSVUUpICMgQSBwb3N0IGhvYyB0ZXN0IGNvbXBhcmluZyAwIG1pbiBhbmQgPjM2MCBtaW4gcGFpcndpc2UuIFxuYGBgIn0= -->
+<pre class="r"><code>wilcox.test(x = EO.MASTER$`0 min` , y = EO.MASTER$`&gt;360min` , paired = TRUE, conf.int = TRUE) # A post hoc test comparing 0 min and &gt;360 min pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHRpZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggdGllc2Nhbm5vdCBjb21wdXRlIGV4YWN0IHAtdmFsdWUgd2l0aCB6ZXJvZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggemVyb2VzXG4ifQ== -->
+<pre><code>cannot compute exact p-value with tiescannot compute exact confidence interval with tiescannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIEVPLk1BU1RFUiRgMCBtaW5gIGFuZCBFTy5NQVNURVIkYD4zNjBtaW5gXG5WID0gMzYuNSwgcC12YWx1ZSA9IDAuMzMwNFxuYWx0ZXJuYXRpdmUgaHlwb3RoZXNpczogdHJ1ZSBsb2NhdGlvbiBzaGlmdCBpcyBub3QgZXF1YWwgdG8gMFxuOTUgcGVyY2VudCBjb25maWRlbmNlIGludGVydmFsOlxuIC05Ni40OTk5OSAgMjguNDk5OTdcbnNhbXBsZSBlc3RpbWF0ZXM6XG4ocHNldWRvKW1lZGlhbiBcbiAgICAgLTIxLjAwMDA0IFxuIn0= -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  EO.MASTER$`0 min` and EO.MASTER$`&gt;360min`
+V = 36.5, p-value = 0.3304
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -96.49999  28.49997
+sample estimates:
+(pseudo)median 
+     -21.00004 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IEVPLk1BU1RFUiQnMzBtaW4nICwgeSA9IEVPLk1BU1RFUiQnMTIwbWluJyAsIHBhaXJlZCA9IFRSVUUsIGNvbmYuaW50ID0gVFJVRSkgIyBBIHBvc3QgaG9jIHRlc3QgY29tcGFyaW5nIDMwIG1pbiBhbmQgMTIwIG1pbiBwYWlyd2lzZS4gXG5gYGAifQ== -->
+<pre class="r"><code>wilcox.test(x = EO.MASTER$&#39;30min&#39; , y = EO.MASTER$&#39;120min&#39; , paired = TRUE, conf.int = TRUE) # A post hoc test comparing 30 min and 120 min pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHRpZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggdGllc2Nhbm5vdCBjb21wdXRlIGV4YWN0IHAtdmFsdWUgd2l0aCB6ZXJvZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggemVyb2VzXG4ifQ== -->
+<pre><code>cannot compute exact p-value with tiescannot compute exact confidence interval with tiescannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIEVPLk1BU1RFUiRcIjMwbWluXCIgYW5kIEVPLk1BU1RFUiRcIjEyMG1pblwiXG5WID0gMzQsIHAtdmFsdWUgPSAwLjQ0MThcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbG9jYXRpb24gc2hpZnQgaXMgbm90IGVxdWFsIHRvIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAtMjIuOTk5OTggIDEyLjk5OTk4XG5zYW1wbGUgZXN0aW1hdGVzOlxuKHBzZXVkbyltZWRpYW4gXG4gICAgICAtMy45OTk5OCBcbiJ9 -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  EO.MASTER$&quot;30min&quot; and EO.MASTER$&quot;120min&quot;
+V = 34, p-value = 0.4418
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -22.99998  12.99998
+sample estimates:
+(pseudo)median 
+      -3.99998 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IEVPLk1BU1RFUiQnMzBtaW4nICwgeSA9IEVPLk1BU1RFUiRgPjM2MG1pbmAgLCBwYWlyZWQgPSBUUlVFLCBjb25mLmludCA9IFRSVUUpICMgQSBwb3N0IGhvYyB0ZXN0IGNvbXBhcmluZyAzMCBtaW4gYW5kID4zNjAgbWluIHBhaXJ3aXNlLiBcbmBgYCJ9 -->
+<pre class="r"><code>wilcox.test(x = EO.MASTER$&#39;30min&#39; , y = EO.MASTER$`&gt;360min` , paired = TRUE, conf.int = TRUE) # A post hoc test comparing 30 min and &gt;360 min pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHRpZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggdGllc2Nhbm5vdCBjb21wdXRlIGV4YWN0IHAtdmFsdWUgd2l0aCB6ZXJvZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggemVyb2VzXG4ifQ== -->
+<pre><code>cannot compute exact p-value with tiescannot compute exact confidence interval with tiescannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIEVPLk1BU1RFUiRcIjMwbWluXCIgYW5kIEVPLk1BU1RFUiRgPjM2MG1pbmBcblYgPSAzOSwgcC12YWx1ZSA9IDAuNDE0MlxuYWx0ZXJuYXRpdmUgaHlwb3RoZXNpczogdHJ1ZSBsb2NhdGlvbiBzaGlmdCBpcyBub3QgZXF1YWwgdG8gMFxuOTUgcGVyY2VudCBjb25maWRlbmNlIGludGVydmFsOlxuIC05MS45OTk5NyAgMTQuNDk5OTRcbnNhbXBsZSBlc3RpbWF0ZXM6XG4ocHNldWRvKW1lZGlhbiBcbiAgICAgLTM0LjAwMDA1IFxuIn0= -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  EO.MASTER$&quot;30min&quot; and EO.MASTER$`&gt;360min`
+V = 39, p-value = 0.4142
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -91.99997  14.49994
+sample estimates:
+(pseudo)median 
+     -34.00005 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IEVPLk1BU1RFUiQnMTIwbWluJyAsIHkgPSBFTy5NQVNURVIkYD4zNjBtaW5gICwgcGFpcmVkID0gVFJVRSwgY29uZi5pbnQgPSBUUlVFKSAjIEEgcG9zdCBob2MgdGVzdCBjb21wYXJpbmcgMTIwIG1pbiBhbmQgMzYwIG1pbiBwYWlyd2lzZS4gXG5gYGAifQ== -->
+<pre class="r"><code>wilcox.test(x = EO.MASTER$&#39;120min&#39; , y = EO.MASTER$`&gt;360min` , paired = TRUE, conf.int = TRUE) # A post hoc test comparing 120 min and 360 min pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHplcm9lc2Nhbm5vdCBjb21wdXRlIGV4YWN0IGNvbmZpZGVuY2UgaW50ZXJ2YWwgd2l0aCB6ZXJvZXNcbiJ9 -->
+<pre><code>cannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIEVPLk1BU1RFUiRcIjEyMG1pblwiIGFuZCBFTy5NQVNURVIkYD4zNjBtaW5gXG5WID0gMzUsIHAtdmFsdWUgPSAwLjI4NTlcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbG9jYXRpb24gc2hpZnQgaXMgbm90IGVxdWFsIHRvIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAtOTEuNTAwMDIgIDI5Ljk5OTk4XG5zYW1wbGUgZXN0aW1hdGVzOlxuKHBzZXVkbyltZWRpYW4gXG4gICAgIC0zMS45OTk5MyBcbiJ9 -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  EO.MASTER$&quot;120min&quot; and EO.MASTER$`&gt;360min`
+V = 35, p-value = 0.2859
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -91.50002  29.99998
+sample estimates:
+(pseudo)median 
+     -31.99993 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>When doing the friedman’s test of the EO Dataset, with a p-value of 0.9343 we fail to reject the null hypothesis that the means across the four groups are equal. This is an inconclusive result. After doing the wilcoxon signed rank test for post-hoc analysis we see that all confidence intervals cross zero indicating that it is not statistically significant. Not enough evidence is available to suggest that the medians are not equal.</p>
 </div>
 <div id="reinforced-dataset-1" class="section level4">
 <h4>Reinforced Dataset</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUmVpbi5NYXN0ZXIuMiA8LSByZWFkX2V4Y2VsKCdQbGF5IEV4cCAzIChSZWluZm9yY2VyKSBEYXRhIE1BU1RFUjIueGxzeCcsIHNoZWV0ID0gJ01hc3RlciBSZWluZm9yY2VyJylcbiNmcmllZG1hbi50ZXN0KHkgPSBSZWluLk1hc3Rlci4yJGBUaW1lIFBsYXllZCAoU2VjKWAsIGdyb3VwcyA9IFJlaW4uTWFzdGVyLjIkYEdyb3VwICNgLCBibG9ja3MgPSBSZWluLk1hc3Rlci4yJGBTYW1wbGUgI2ApXG5gYGAifQ== -->
-<pre class="r"><code>Rein.Master.2 &lt;- read_excel(&#39;Play Exp 3 (Reinforcer) Data MASTER2.xlsx&#39;, sheet = &#39;Master Reinforcer&#39;)
-#friedman.test(y = Rein.Master.2$`Time Played (Sec)`, groups = Rein.Master.2$`Group #`, blocks = Rein.Master.2$`Sample #`)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUmVpbi5NYXN0ZXIuMiA8LSByZWFkX2V4Y2VsKCdQbGF5IEV4cCAzIChSZWluZm9yY2VyKSBEYXRhIE1BU1RFUjIueGxzeCcsIHNoZWV0ID0gJ01hc3RlciBBdmVyYWdlcycpXG5mcmllZG1hbi50ZXN0KHkgPSBSZWluLk1hc3Rlci4yJGBBdmVyYWdlIFBsYXlUaW1lIChTZWMpYCwgZ3JvdXBzID0gUmVpbi5NYXN0ZXIuMiRgR3JvdXAgI2AsIGJsb2NrcyA9IFJlaW4uTWFzdGVyLjIkYERvZyBQYWlyICNgKSAjIEZyaWVkbWFuIHRlc3QgdG8gY29tcGFyZSBtZWRpYW5zIG9mIHRoZSBhdHRlbnRpb24gdGVzdCwgYXR0ZW50aW9uIGNvbnRyb2wsIGFuZCBhbG9uZSBhdmVyYWdlIHBsYXkgdGltZXMgdG8gc2VlIGlmIHRoZXJlIGlzIGEgc2lnbmlmaWNhbnQgZGlmZmVyZW5jZS4gXG5gYGAifQ== -->
+<pre class="r"><code>Rein.Master.2 &lt;- read_excel(&#39;Play Exp 3 (Reinforcer) Data MASTER2.xlsx&#39;, sheet = &#39;Master Averages&#39;)
+friedman.test(y = Rein.Master.2$`Average PlayTime (Sec)`, groups = Rein.Master.2$`Group #`, blocks = Rein.Master.2$`Dog Pair #`) # Friedman test to compare medians of the attention test, attention control, and alone average play times to see if there is a significant difference. </code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdEZyaWVkbWFuIHJhbmsgc3VtIHRlc3RcblxuZGF0YTogIFJlaW4uTWFzdGVyLjIkYEF2ZXJhZ2UgUGxheVRpbWUgKFNlYylgLCBSZWluLk1hc3Rlci4yJGBHcm91cCAjYCBhbmQgUmVpbi5NYXN0ZXIuMiRgRG9nIFBhaXIgI2BcbkZyaWVkbWFuIGNoaS1zcXVhcmVkID0gMTIuOCwgZGYgPSAyLCBwLXZhbHVlID1cbjAuMDAxNjYyXG4ifQ== -->
+<pre><code>
+    Friedman rank sum test
+
+data:  Rein.Master.2$`Average PlayTime (Sec)`, Rein.Master.2$`Group #` and Rein.Master.2$`Dog Pair #`
+Friedman chi-squared = 12.8, df = 2, p-value =
+0.001662</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IFJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gQ29udHJvbGAsIHkgPSBSZWluZm9yY2VkLk1BU1RFUiRgQXR0ZW50aW9uIFRlc3RgLCBwYWlyZWQgPSBUUlVFLCBjb25mLmludCA9IFRSVUUpICMgQSBwb3N0IGhvYyB0ZXN0IGNvbXBhcmluZyBhdHRlbnRpb24gY29udHJvbCBhbmQgYXR0ZW50aW9uIHRlc3QgcGFpcndpc2UuIFxuYGBgIn0= -->
+<pre class="r"><code>wilcox.test(x = Reinforced.MASTER$`Attention Control`, y = Reinforced.MASTER$`Attention Test`, paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention control and attention test pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHRpZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggdGllc2Nhbm5vdCBjb21wdXRlIGV4YWN0IHAtdmFsdWUgd2l0aCB6ZXJvZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggemVyb2VzXG4ifQ== -->
+<pre><code>cannot compute exact p-value with tiescannot compute exact confidence interval with tiescannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIFJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gQ29udHJvbGAgYW5kIFJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gVGVzdGBcblYgPSA1MzUsIHAtdmFsdWUgPSA1LjY1OGUtMDZcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbG9jYXRpb24gc2hpZnQgaXMgbm90IGVxdWFsIHRvIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAgNjAuMDAwMDMgMTIxLjc1MDAzXG5zYW1wbGUgZXN0aW1hdGVzOlxuKHBzZXVkbyltZWRpYW4gXG4gICAgICA5My40OTk5NyBcbiJ9 -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  Reinforced.MASTER$`Attention Control` and Reinforced.MASTER$`Attention Test`
+V = 535, p-value = 5.658e-06
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+  60.00003 121.75003
+sample estimates:
+(pseudo)median 
+      93.49997 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IFJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gQ29udHJvbGAsIHkgPSBSZWluZm9yY2VkLk1BU1RFUiRBbG9uZSwgcGFpcmVkID0gVFJVRSwgY29uZi5pbnQgPSBUUlVFKSAjIEEgcG9zdCBob2MgdGVzdCBjb21wYXJpbmcgYXR0ZW50aW9uIGNvbnRyb2wgYW5kIGFsb25lIHBhaXJ3aXNlLiBcbmBgYCJ9 -->
+<pre class="r"><code>wilcox.test(x = Reinforced.MASTER$`Attention Control`, y = Reinforced.MASTER$Alone, paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention control and alone pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHRpZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggdGllc2Nhbm5vdCBjb21wdXRlIGV4YWN0IHAtdmFsdWUgd2l0aCB6ZXJvZXNjYW5ub3QgY29tcHV0ZSBleGFjdCBjb25maWRlbmNlIGludGVydmFsIHdpdGggemVyb2VzXG4ifQ== -->
+<pre><code>cannot compute exact p-value with tiescannot compute exact confidence interval with tiescannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIFJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gQ29udHJvbGAgYW5kIFJlaW5mb3JjZWQuTUFTVEVSJEFsb25lXG5WID0gNTc0LCBwLXZhbHVlID0gMi4yOTFlLTA1XG5hbHRlcm5hdGl2ZSBoeXBvdGhlc2lzOiB0cnVlIGxvY2F0aW9uIHNoaWZ0IGlzIG5vdCBlcXVhbCB0byAwXG45NSBwZXJjZW50IGNvbmZpZGVuY2UgaW50ZXJ2YWw6XG4gIDQwLjc1MDAyIDEwOC40OTk5N1xuc2FtcGxlIGVzdGltYXRlczpcbihwc2V1ZG8pbWVkaWFuIFxuICAgICAgNzguNzcwNjEgXG4ifQ== -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  Reinforced.MASTER$`Attention Control` and Reinforced.MASTER$Alone
+V = 574, p-value = 2.291e-05
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+  40.75002 108.49997
+sample estimates:
+(pseudo)median 
+      78.77061 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2lsY294LnRlc3QoeCA9IFJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gVGVzdGAsIHkgPSBSZWluZm9yY2VkLk1BU1RFUiRBbG9uZSwgcGFpcmVkID0gVFJVRSwgY29uZi5pbnQgPSBUUlVFKSAjIEEgcG9zdCBob2MgdGVzdCBjb21wYXJpbmcgYXR0ZW50aW9uIHRlc3QgdG8gYWxvbmUgcGFpcndpc2UuIFxuYGBgIn0= -->
+<pre class="r"><code>wilcox.test(x = Reinforced.MASTER$`Attention Test`, y = Reinforced.MASTER$Alone, paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention test to alone pairwise. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IGNvbXB1dGUgZXhhY3QgcC12YWx1ZSB3aXRoIHplcm9lc2Nhbm5vdCBjb21wdXRlIGV4YWN0IGNvbmZpZGVuY2UgaW50ZXJ2YWwgd2l0aCB6ZXJvZXNcbiJ9 -->
+<pre><code>cannot compute exact p-value with zeroescannot compute exact confidence interval with zeroes</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3Qgd2l0aCBjb250aW51aXR5XG5cdGNvcnJlY3Rpb25cblxuZGF0YTogIFJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gVGVzdGAgYW5kIFJlaW5mb3JjZWQuTUFTVEVSJEFsb25lXG5WID0gNzQsIHAtdmFsdWUgPSAwLjQwOTRcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbG9jYXRpb24gc2hpZnQgaXMgbm90IGVxdWFsIHRvIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAtNTEuNzQ5OTYgIDE5LjAwMDAzXG5zYW1wbGUgZXN0aW1hdGVzOlxuKHBzZXVkbyltZWRpYW4gXG4gICAgIC0xMS44NDQ3OCBcbiJ9 -->
+<pre><code>
+    Wilcoxon signed rank test with continuity
+    correction
+
+data:  Reinforced.MASTER$`Attention Test` and Reinforced.MASTER$Alone
+V = 74, p-value = 0.4094
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -51.74996  19.00003
+sample estimates:
+(pseudo)median 
+     -11.84478 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>When doing the initial friedman’s test, we get a p-value of 0.001. This means that at least one of the conditions is different form the rest. When running wilcoxon signed rank test as post-hocs, we see that attnetion control is significantly different from both attention test as well as alone. This shows that attention control is what caused the significant friedman’s test and showed significantly higher amounts of playtime than the other two conditions.</p>
 <!-- rnb-text-end -->
 </div>
 </div>
-</div>
-</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKYXV0aG9yOiBKZXR0IFZlcm5hY2kgJiBTb25ueSBUaW1wYW5pCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMgMjYgTWFyY2ggMjAyMAoKIyMgUGFja2FnZSBMb2FkaW5nIApgYGB7ciwgbWVzc2FnZSA9IEZBTFNFfQpsaWJyYXJ5KG1vc2FpYykKaW5zdGFsbC5wYWNrYWdlcygncmVhZHhsJykKbGlicmFyeShyZWFkeGwpCmBgYAoKIyMgRGF0YSBMb2FkaW5nCgpgYGB7cn0KU0QuTWFzdGVyID0gcmVhZF9leGNlbCgnU0RfRGF0YV9NQVNURVIueGxzeCcsIHNoZWV0ID0gJ1NEIE1hc3RlcicpCkVPLk1BU1RFUiA8LSByZWFkX2V4Y2VsKCdQbGF5IEV4cCAyIChFTykgRGF0YSBNQVNURVIueGxzeCcsIHNoZWV0ID0gJ01BU1RFUicpClJlaW5mb3JjZWQuTUFTVEVSIDwtIHJlYWRfZXhjZWwoJ1BsYXkgRXhwIDMgKFJlaW5mb3JjZXIpIERhdGEgTUFTVEVSLnhsc3gnLCBzaGVldCA9ICdNYXN0ZXIgUmVpbmZvcmNlcicpCmBgYApMb2FkZWQgaW4gYWxsIG9mIHRoZSBtYXN0ZXIgZGF0YXNldHMgY29udGFpbmluZyB0aGUgZGF0YSBjb25zb2xpZGF0ZWQgaW50byBvbmUgc2hlZXQgdG8gbWFrZSBpdCBlYXNpZXIgdG8gdGVzdCBhbGwgZ3JvdXBzIGF0IG9uY2UgaW4gUgoKIyMgRGVzY3JpcHRpdmVzCgojIyMgT3ZlcmFsbCBTdGF0aXN0aWNzIAoKIyMjIyBTRCBEYXRhc2V0CgpgYGB7cn0KZmF2c3RhdHMoflNELk1hc3RlciRgU0QgKHMpYCkgIyBEZXNjcmlwdGl2ZSBTdGF0cyBmb3IgU0QgRGF0YSAoT3duZXIgQXR0ZW50aW9uKQpmYXZzdGF0cyh+U0QuTWFzdGVyJGBTLURlbHRhIChzKWApICMgRGVzY3JpcHRpdmUgU3RhdHMgZm9yIFMtRGVsdGEgKE5vIEF0dGVudGlvbikKZ2ZfaGlzdG9ncmFtKH5TRC5NYXN0ZXIkYFNEIChzKWApICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgdGl0bGUgPSAnU0QgKHMpIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGNvbnRhaW5pbmcgdGhlIGRpc3RyaWJ1dGlvbiBvZiBTRCBkYXRhIApnZl9oaXN0b2dyYW0oflNELk1hc3RlciRgUy1EZWx0YSAocylgKSAlPiUgZ2ZfbGFicyh4ID0gJ1RpbWUgUGxheWVkIChTZWNvbmRzKScsIHRpdGxlID0gJ1MtRGVsdGEgKHMpIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGNvbnRhaW5pbmcgdGhlIGRpc3RyaWJ1dGlvbiBvZiBTLURlbHRhIGRhdGEgCmBgYApBYm92ZSBhcmUgdGhlIGRlc2NyaXB0aXZlIHN0YXRpc3RpY3Mgb2YgdGhlIG92ZXJhbGwgU0QgbWFzdGVyIGZpbGVzLiBUaGUgZmlyc3QgaGlzdG9ncmFtIGZvciBTRCAocykgaW5kaWNhdGVzIGRhdGEgdGhhdCBpcyBub3Qgbm9ybWFsIGJlY2F1c2UgaXQgaXMgbm90IGEgYSBzeW1tZXRyaWMgaGlzdG9ncmFtLiBJdCBhcHBlYXJzIHRvIGhhdmUgYSByaWdodCB0YWlsIHRoYXQgaXMgc3RyZXRjaGVkIHRodXMgYmVpbmcgcG9zaXRpdmVseSBza2V3ZWQuIAoKVGhlIHNlY29uZCBoaXN0b2dyYW0gZm9yIFMtRGVsdGEgKHMpIGluZGljYXRlcyBkYXRhIHRoYXQgaXMgbm90IG5vcm1hbGl6ZWQuIE1ham9yaXR5IG9mIHRoZSBkYXRhIGlzIGNvbmdlc3RlZCBvbiB0aGUgbGVmdCBzaWRlIGJldHdlZW4gMCBhbmQgMjAgc2Vjb25kcy4gCgpIaWdoZXIgbWVhbiBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIGZvciBTRCBkYXRhIHRoYW4gUy1EZWx0YSBkYXRhLiBUaGlzIG1ha2VzIHNlbnNlIGJlY2F1c2UgdGhlcmUgaXMgbGVzcyBwbGF5aW5nIHRpbWUgYW1vbmcgdGhlIGRvZ3MgdGhhdCB3ZXJlIGdpdmVuIG5vIGF0dGVudGlvbi4gCgojIyMjIEVPIERhdGFzZXQKCmBgYHtyfQpmYXZzdGF0cyh+RU8uTUFTVEVSJGAwIG1pbmApICMgRGVzY3JpcHRpdmVzIGZvciB0aGUgMCBtaW51dGUgZGF0YSAKZmF2c3RhdHMofkVPLk1BU1RFUiRgMzBtaW5gKSAjIERlc2NyaXB0aXZlcyBmb3IgdGhlIDMwIG1pbnV0ZSBkYXRhCmZhdnN0YXRzKH5FTy5NQVNURVIkYDEyMG1pbmApICMgRGVzY3JpcHRpdmVzIGZvciB0aGUgMTIwIG1pbnV0ZSBkYXRhCmZhdnN0YXRzKH5FTy5NQVNURVIkYD4zNjBtaW5gKSAjIERlc2NyaXB0aXZlcyBmb3IgdGhlID4zNjAgbWludXRlIGRhdGEgCmdmX2hpc3RvZ3JhbSh+RU8uTUFTVEVSJGAwIG1pbmApICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgIHRpdGxlID0gJzAgTWludXRlcyBvZiBPd25lciBEZXByaXZhdGlvbiBIaXN0b2dyYW0nKSAjIEhpc3RvZ3JhbSBmb3IgdGhlIDAgbWludXRlIGRhdGEKZ2ZfaGlzdG9ncmFtKH5FTy5NQVNURVIkYDMwbWluYCkgJT4lIGdmX2xhYnMoeCA9ICdUaW1lIFBsYXllZCAoU2Vjb25kcyknLCB0aXRsZSA9ICczMCBNaW51dGVzIG9mIE93bmVyIERlcHJpdmF0aW9uIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGZvciB0aGUgMzAgbWludXRlIGRhdGEKZ2ZfaGlzdG9ncmFtKH5FTy5NQVNURVIkYDEyMG1pbmApICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgIHRpdGxlID0gJzEyMCBNaW51dGVzIG9mIE93bmVyIERlcHJpdmF0aW9uIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGZvciB0aGUgMTIwIG1pbnV0ZSBkYXRhCmdmX2hpc3RvZ3JhbSh+RU8uTUFTVEVSJGA+MzYwbWluYCkgJT4lIGdmX2xhYnMoeCA9ICdUaW1lIFBsYXllZCAoU2Vjb25kcyknLCAgdGl0bGUgPSAnPjM2MCBNaW51dGVzIG9mIE93bmVyIERlcHJpdmF0aW9uIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGZvciB0aGUgPjM2MCBtaW51dGUgZGF0YQpgYGAKT25lIHRoaW5nIHRvIG5vdGljZSBpbiB0aGUgZmF2c3RhdHMgb3V0cHV0cyBpcyB0aGF0IG9uIGF2ZXJhZ2UgdGhlIGFtb3VudCBvZiBwbGF5aW5nIHRpbWUgc2VlbXMgdG8gYmUgaW5jcmVhc2luZyBhcyBvd25lciBkZXByaXZhdGlvbiBpbmNyZWFzZXMuIEFub3RoZXIgdGhpbmcgdG8gbm90aWNlIGlzIHRoYXQgdGhlIHN0YW5kYXJkIGRldmlhdGlvbiBpcyBhbHNvIGluY3JlYXNpbmcgYXMgb3duZXIgZGVwcml2YXRpb24gaW5jcmVhc2VzLCBtZWFuaW5nIHRoYXQgdGhlcmUgaXMgbW9yZSB2YXJpYXRpb24gaW4gdGhlIGRhdGEgYXMgb3duZXIgZGVwcml2YXRpb24gZ29lcyB1cC4gV2hlbiB0aGUgaGlzdG9ncmFtcyBhcmUgcGxvdHRlZCBmb3IgdGhlIG92ZXJhbGwgZGF0YSwgaXQgaXMgY2xlYXIgdGhhdCB0aGUgZGF0YSBpcyBub3Qgbm9ybWFsLCBhbmQgd2Ugd2lsbCBuZWVkIHRvIHVzZSBub24tcGFyYW1ldHJpYyB0ZXN0cyB0byBydW4gdGhlIGFuYWx5c2VzLgoKIyAzMCBNYXJjaCAyMDIwCgojIyMjIFJlaW5mb3JjZXIgRGF0YXNldAoKYGBge3J9CmZhdnN0YXRzKH5SZWluZm9yY2VkLk1BU1RFUiRgQXR0ZW50aW9uIENvbnRyb2xgKSAjIERlc2NyaXB0aXZlIHN0YXRzIGZvciB0aGUgQXR0ZW50aW9uIENvbnRyb2wgZGF0YSB3aGljaCBpcyByYW5kb20gYXR0ZW50aW9uIApmYXZzdGF0cyh+UmVpbmZvcmNlZC5NQVNURVIkYEF0dGVudGlvbiBUZXN0YCkgIyBEZXNjcmlwdGl2ZSBzdGF0cyBmb3IgdGhlIEF0dGVudGlvbiBUZXN0IGRhdGEgd2hpY2ggaXMgYXR0ZW50aW9uIGdpdmVuIG9ubHkgd2hlbiBzb21ldGhpbmcgcG9zaXRpdmUgb3IgbmVnYXRpdmUgaGFwcGVucwpmYXZzdGF0cyh+UmVpbmZvcmNlZC5NQVNURVIkQWxvbmUpICMgRGVzY3JpcHRpdmUgc3RhdHMgZm9yIHRoZSBBbG9uZSBkYXRhIHdoaWNoIGlzIHRoZSBkb2dzIGluIGEgcm9vbSB3aXRoIG5vIGh1bWFucywganVzdCBhIHRyaXBvZCAKZ2ZfaGlzdG9ncmFtKH5SZWluZm9yY2VkLk1BU1RFUiRgQXR0ZW50aW9uIENvbnRyb2xgKSAlPiUgZ2ZfbGFicyh4ID0gJ1RpbWUgUGxheWVkIChTZWNvbmRzKScsIHRpdGxlID0gJ1JlaW5mb3JjZWQgRGF0YSBBdHRlbnRpb24gQ29udHJvbCBIaXN0b2dyYW0nKSAjIEhpc3RvZ3JhbSBvZiB0aGUgQXR0ZW50aW9uIENvbnRyb2wgZGF0YQpnZl9oaXN0b2dyYW0oflJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gVGVzdGApICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgdGl0bGUgPSAnUmVpbmZvcmNlZCBEYXRhIEF0dGVudGlvbiBUZXN0IEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIG9mIHRoZSBBdHRlbnRpb24gVGVzdCBkYXRhCmdmX2hpc3RvZ3JhbSh+UmVpbmZvcmNlZC5NQVNURVIkQWxvbmUpICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgdGl0bGUgPSAnUmVpbmZvcmNlZCBEYXRhIEFsb25lIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIG9mIHRoZSBBbG9uZSBkYXRhCmBgYApXaGVuIGxvb2tpbmcgYXQgdGhlIGRlc2NyaXB0aXZlIHN0YXRpc3RpY3MgZm9yIHRoZSBSZWluZm9yY2VkIGRhdGEsIGl0IGFwcGVhcnMgdGhhdCB0aGUgQXR0ZW50aW9uIENvbnRyb2wgc2Vzc2lvbnMgc2F3IHRoZSBtb3N0IHBsYXkgdGltZSwgZm9sbG93ZWQgYnkgdGhlIGFsb25lIGFuZCBhdHRlbnRpb24gdGVzdCBzZXNzaW9ucy4gVGhpcyBtYWtlcyBzZW5zZSBzaW5jZSByYW5kb20gYXR0ZW50aW9uIGFsd2F5cyBtYWtlcyBhIGRvZyBtb3JlIGV4Y2l0ZWQsIHdoZXJlYXMgYXR0ZW50aW9uIHdoZW4gYSBkb2cgZG9lcyBzb21ldGhpbmcgbndnYXRpdmUgbWF5IG1ha2UgdGhlIGRvZyBsZXNzIGV4Y2l0ZWQgYW5kIG5vdCB3aWxsaW5nIHRvIHBsYXkuIEFsbCBvZiB0aGUgaGlzdG9ncmFtcyBzaG93IGEgdmVyeSBza2V3ZWQgcmlnaHQgZGlzdHJpYnV0aW9uLCB0aGVyZWZvcmUgdGhlIEtydXNrYWwgV2FsbGlzIHRlc3QgbXVzdCBiZSB1c2VkIHRvIGFuYWx5emUgdGhpcyBkYXRhLiAKCgojIDMxIE1hcmNoIDIwMjAKCiMjIyBEZXNjcmlwdGl2ZSBTdGF0aXN0aWNzIGJ5IFNlc3NzaW9uIE51bWJlcgoKIyMjIyBTRCBEYXRhc2V0CgpgYGB7cn0KZmF2c3RhdHMoflNELk1hc3RlciRgU0QgKHMpYCB8IFNELk1hc3RlciRgU2Vzc2lvbiAjYCkKZmF2c3RhdHMoflNELk1hc3RlciRgUy1EZWx0YSAocylgIHwgU0QuTWFzdGVyJGBTZXNzaW9uICNgKQpgYGAKCiMjIyMgRU8gRGF0YXNldAoKYGBge3J9CmZhdnN0YXRzKH5FTy5NQVNURVIkYDAgbWluYCB8IEVPLk1BU1RFUiRTZXNzaW9uKSAjIDAgbWluIGRhdGEgYnkgc2Vzc2lvbiBudW1iZXIKZmF2c3RhdHMofkVPLk1BU1RFUiRgMzBtaW5gIHwgRU8uTUFTVEVSJFNlc3Npb24pICMgMzAgbWluIGRhdGEgYnkgc2Vzc2lvbiBudW1iZXIKZmF2c3RhdHMofkVPLk1BU1RFUiRgMTIwbWluYCB8IEVPLk1BU1RFUiRTZXNzaW9uKSAjIDEyMCBtaW4gZGF0YSBieSBzZXNzaW9uIG51bWJlciAKZmF2c3RhdHMofkVPLk1BU1RFUiRgPjM2MG1pbmAgfCBFTy5NQVNURVIkU2Vzc2lvbikgIyA+MzYwIG1pbiBkYXRhIGJ5IHNlc3Npb24gbnVtYmVyCmBgYApXaGVuIGxvb2tpbmcgYXQgZWFjaCBvZiB0aGUgdGltZSBpbnRlcnZhbHMgYnkgc2Vzc2lvbiBudW1iZXIsIHRoZSBkZXNjcmlwdGl2ZXMgc2hvdyB0aGF0IHNlc3Npb24gb25lIGhhZCBtb3JlIHBsYXlpbmcgdGltZSB0aGFuIHNlc3Npb24gdHdvIGZvciBhbGwgaW50ZXJ2YWxzIG9mIG93bmVyIGRlcHJpdmF0aW9uIGV4Y2VwdCBmb3IgdGhlID4zNjAgbWluIHRpbWUgaW50ZXJ2YWwuIAoKQWxsIG9mIHRoZSBzdGFuZGFyZCBkZXZpYXRpb25zIGFjcm9zcyBib3RoIHNlc3Npb25zIGZvciBlYWNoIHRpbWUgaW50ZXJ2YWwgYXJlIGxhcmdlbSwgaW5kaWNhdGluZyB0aGF0IHRoZSBhbW91bnQgb2YgcGxheXRpbWVzIHNob3duIGJ5IHRoZSBkb2dzIGhhdmUgYSBsb3Qgb2YgdmFyaWF0aW9uLiAKClRoZSBkb2dzIHNlZW0gdG8gcGxheSB0aGUgbW9zdCBvbiBhdmVyYWdlIHdoZW4gdGhlaXIgb3duZXIgaGFzIGJlZW4gYXdheSBmb3IgMTIwIG1pbnV0ZXMgaW4gdGhlIGZpcnN0IHNlc3Npb24sIGJ1dCB0aGVuIGluIHRoZSBzZWNvbmQgc2Vzc2lvbiB0aGV5IHBsYXllZCB0aGUgbW9zdCBvbiBhdmVyYWdlIHdoZW4gdGhlIG93bmVyIGhhZCBiZWVuIGF3YXkgZm9yID4zNjAgbWluLiAKCiMjIyMgUmVpbmZvcmNlZCBEYXRhc2V0CgpgYGB7cn0KZmF2c3RhdHMoflJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gQ29udHJvbGAgfCBSZWluZm9yY2VkLk1BU1RFUiRgU2Vzc2lvbiAjYCkgIyBBdHRlbnRpb24gQ29udHJvbCBkYXRhIGRlc2NyaXB0aXZlcyB3aGVuIHNwbGl0dGluZyBieSBzZXNzaW9uIG51bWJlciAKZmF2c3RhdHMoflJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gVGVzdGAgfCBSZWluZm9yY2VkLk1BU1RFUiRgU2Vzc2lvbiAjYCkgIyBBdHRlbnRpb24gVGVzdCBkYXRhIGRlc2NyaXB0aXZlcyB3aGVuIHNwbGl0dGluZyBieSBzZXNzaW9uIG51bWJlciAKZmF2c3RhdHMoflJlaW5mb3JjZWQuTUFTVEVSJEFsb25lIHwgUmVpbmZvcmNlZC5NQVNURVIkYFNlc3Npb24gI2ApICMgQWxvbmUgZGF0YSBkZXNjcmlwdGl2ZXMgd2hlbiBzcGxpdHRpbmcgYnkgc2Vzc2lvbiBudW1iZXIKYGBgCkZvciB0aGUgYXR0ZW50aW9uIGNvbnRyb2wgZGF0YSwgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIG1vc3QgcGxheXRpbWUgb24gYXZlcmFnZSB3YXMgc2Vzc2lvbiAyLCBhbmQgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIGxlYXN0IGFtb3VudCBvZiBwbGF5dGltZSBvbiBhdmVyYWdlIHdhcyBzZXNzaW9uIDEuIEZvciB0aGUgYXR0ZW50aW9uIHRlc3QgZGF0YSwgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIG1vc3QgcGxheXRpbWUgb24gYXZlcmFnZSB3YXMgc2Vzc2lvbiAyLCBhbmQgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIGxlYXN0IGFtb3VudCBvZiBwbGF5dGltZSBvbiBhdmVyYWdlIHdhcyBzZXNzaW9uIDMuIExhc3RseSwgZm9yIHRoZSBhbG9uZSBkYXRhc2V0LCB0aGUgc2Vzc2lvbiB3aXRoIHRoZSBoaWdoZXN0IHBsYXl0aW1lIG9uIGF2ZXJhZ2Ugd2FzIHNlc3Npb24gNSBhbmQgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIGxlYXN0IGFtb3VudCBvZiBwbGF5dGltZSBvbiBhdmVyYWdlIHdhcyBzZXNzaW9uIDMuIAoKIyMgRGF0YSBBbmFseXNpcyAKCiMjIyBNYW5uLVdoaXRuZXkgVSBUZXN0IG9uIHRoZSBTRCBEYXRhCgojIyMjIFNEIERhdGFzZXQKYGBge3J9CndpbGNveC50ZXN0KFNELk1hc3RlciRgU0QgKHMpYCwgU0QuTWFzdGVyJGBTLURlbHRhIChzKWAsIGFsdGVybmF0aXZlID0gYygidHdvLnNpZGVkIikpCmBgYApUaGUgTWFubi1XaGl0bmV5IFUgdGVzdCBzaG93cyBhIHAtdmFsdWUgb2YgMi4yZS0xNiB3aGljaCBpcyBzaWduaWZpY2FudCBlbm91Z2ggdG8gcmVqZWN0IHRoZSBudWxsIGh5cG90aGVzaXMuIFdlIGNhbiBjb25jbHVkZSB0aGF0IHRoZSBkaXN0cmlidXRpb25zIG9mIHRoZSBTRCBhbmQgUy1EZWx0YSBhcmUgZGlmZmVyZW50IGZvciBhbGwgZG9nIHBhaXJzLgoKCiMjIyMgRU8gRGF0YXNldAoKYGBge3J9CkVPLk1hc3Rlci4yIDwtIHJlYWRfZXhjZWwoJ0VPXzJfRGF0YS54bHN4JyAsIHNoZWV0ID0gJ0VPIE1hc3RlciBBdmVyYWdlcycpCiNmcmllZG1hbi50ZXN0KHkgPSBFTy5NYXN0ZXIuMiQnQXZlcmFnZSBUaW1lIFBsYXllZCAoU2VjKScgLCBncm91cHMgPSBFTy5NYXN0ZXIuMiQnR3JvdXAgIycpKQpgYGAKCgojIyMjIFJlaW5mb3JjZWQgRGF0YXNldAoKYGBge3J9ClJlaW4uTWFzdGVyLjIgPC0gcmVhZF9leGNlbCgnUGxheSBFeHAgMyAoUmVpbmZvcmNlcikgRGF0YSBNQVNURVIyLnhsc3gnLCBzaGVldCA9ICdNYXN0ZXIgUmVpbmZvcmNlcicpCiNmcmllZG1hbi50ZXN0KHkgPSBSZWluLk1hc3Rlci4yJGBUaW1lIFBsYXllZCAoU2VjKWAsIGdyb3VwcyA9IFJlaW4uTWFzdGVyLjIkYEdyb3VwICNgLCBibG9ja3MgPSBSZWluLk1hc3Rlci4yJGBTYW1wbGUgI2ApCmBgYAoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKYXV0aG9yOiBKZXR0IFZlcm5hY2kgJiBTb25ueSBUaW1wYW5pCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMgMjYgTWFyY2ggMjAyMAoKIyMgUGFja2FnZSBMb2FkaW5nIApgYGB7ciwgbWVzc2FnZSA9IEZBTFNFfQpsaWJyYXJ5KG1vc2FpYykKaW5zdGFsbC5wYWNrYWdlcygncmVhZHhsJykKbGlicmFyeShyZWFkeGwpCmBgYAoKIyMgRGF0YSBMb2FkaW5nCgpgYGB7cn0KU0QuTWFzdGVyID0gcmVhZF9leGNlbCgnU0RfRGF0YV9NQVNURVIueGxzeCcsIHNoZWV0ID0gJ1NEIE1hc3RlcicpCkVPLk1BU1RFUiA8LSByZWFkX2V4Y2VsKCdQbGF5IEV4cCAyIChFTykgRGF0YSBNQVNURVIueGxzeCcsIHNoZWV0ID0gJ01BU1RFUicpClJlaW5mb3JjZWQuTUFTVEVSIDwtIHJlYWRfZXhjZWwoJ1BsYXkgRXhwIDMgKFJlaW5mb3JjZXIpIERhdGEgTUFTVEVSLnhsc3gnLCBzaGVldCA9ICdNYXN0ZXIgUmVpbmZvcmNlcicpCmBgYApMb2FkZWQgaW4gYWxsIG9mIHRoZSBtYXN0ZXIgZGF0YXNldHMgY29udGFpbmluZyB0aGUgZGF0YSBjb25zb2xpZGF0ZWQgaW50byBvbmUgc2hlZXQgdG8gbWFrZSBpdCBlYXNpZXIgdG8gdGVzdCBhbGwgZ3JvdXBzIGF0IG9uY2UgaW4gUgoKIyMgRGVzY3JpcHRpdmVzCgojIyMgT3ZlcmFsbCBTdGF0aXN0aWNzIAoKIyMjIyBTRCBEYXRhc2V0CgpgYGB7cn0KZmF2c3RhdHMoflNELk1hc3RlciRgU0QgKHMpYCkgIyBEZXNjcmlwdGl2ZSBTdGF0cyBmb3IgU0QgRGF0YSAoT3duZXIgQXR0ZW50aW9uKQpmYXZzdGF0cyh+U0QuTWFzdGVyJGBTLURlbHRhIChzKWApICMgRGVzY3JpcHRpdmUgU3RhdHMgZm9yIFMtRGVsdGEgKE5vIEF0dGVudGlvbikKZ2ZfaGlzdG9ncmFtKH5TRC5NYXN0ZXIkYFNEIChzKWApICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgdGl0bGUgPSAnU0QgKHMpIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGNvbnRhaW5pbmcgdGhlIGRpc3RyaWJ1dGlvbiBvZiBTRCBkYXRhIApnZl9oaXN0b2dyYW0oflNELk1hc3RlciRgUy1EZWx0YSAocylgKSAlPiUgZ2ZfbGFicyh4ID0gJ1RpbWUgUGxheWVkIChTZWNvbmRzKScsIHRpdGxlID0gJ1MtRGVsdGEgKHMpIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGNvbnRhaW5pbmcgdGhlIGRpc3RyaWJ1dGlvbiBvZiBTLURlbHRhIGRhdGEgCmBgYApBYm92ZSBhcmUgdGhlIGRlc2NyaXB0aXZlIHN0YXRpc3RpY3Mgb2YgdGhlIG92ZXJhbGwgU0QgbWFzdGVyIGZpbGVzLiBUaGUgZmlyc3QgaGlzdG9ncmFtIGZvciBTRCAocykgaW5kaWNhdGVzIGRhdGEgdGhhdCBpcyBub3Qgbm9ybWFsIGJlY2F1c2UgaXQgaXMgbm90IGEgYSBzeW1tZXRyaWMgaGlzdG9ncmFtLiBJdCBhcHBlYXJzIHRvIGhhdmUgYSByaWdodCB0YWlsIHRoYXQgaXMgc3RyZXRjaGVkIHRodXMgYmVpbmcgcG9zaXRpdmVseSBza2V3ZWQuIAoKVGhlIHNlY29uZCBoaXN0b2dyYW0gZm9yIFMtRGVsdGEgKHMpIGluZGljYXRlcyBkYXRhIHRoYXQgaXMgbm90IG5vcm1hbGl6ZWQuIE1ham9yaXR5IG9mIHRoZSBkYXRhIGlzIGNvbmdlc3RlZCBvbiB0aGUgbGVmdCBzaWRlIGJldHdlZW4gMCBhbmQgMjAgc2Vjb25kcy4gCgpIaWdoZXIgbWVhbiBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIGZvciBTRCBkYXRhIHRoYW4gUy1EZWx0YSBkYXRhLiBUaGlzIG1ha2VzIHNlbnNlIGJlY2F1c2UgdGhlcmUgaXMgbGVzcyBwbGF5aW5nIHRpbWUgYW1vbmcgdGhlIGRvZ3MgdGhhdCB3ZXJlIGdpdmVuIG5vIGF0dGVudGlvbi4gCgojIyMjIEVPIERhdGFzZXQKCmBgYHtyfQpmYXZzdGF0cyh+RU8uTUFTVEVSJGAwIG1pbmApICMgRGVzY3JpcHRpdmVzIGZvciB0aGUgMCBtaW51dGUgZGF0YSAKZmF2c3RhdHMofkVPLk1BU1RFUiRgMzBtaW5gKSAjIERlc2NyaXB0aXZlcyBmb3IgdGhlIDMwIG1pbnV0ZSBkYXRhCmZhdnN0YXRzKH5FTy5NQVNURVIkYDEyMG1pbmApICMgRGVzY3JpcHRpdmVzIGZvciB0aGUgMTIwIG1pbnV0ZSBkYXRhCmZhdnN0YXRzKH5FTy5NQVNURVIkYD4zNjBtaW5gKSAjIERlc2NyaXB0aXZlcyBmb3IgdGhlID4zNjAgbWludXRlIGRhdGEgCmdmX2hpc3RvZ3JhbSh+RU8uTUFTVEVSJGAwIG1pbmApICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgIHRpdGxlID0gJzAgTWludXRlcyBvZiBPd25lciBEZXByaXZhdGlvbiBIaXN0b2dyYW0nKSAjIEhpc3RvZ3JhbSBmb3IgdGhlIDAgbWludXRlIGRhdGEKZ2ZfaGlzdG9ncmFtKH5FTy5NQVNURVIkYDMwbWluYCkgJT4lIGdmX2xhYnMoeCA9ICdUaW1lIFBsYXllZCAoU2Vjb25kcyknLCB0aXRsZSA9ICczMCBNaW51dGVzIG9mIE93bmVyIERlcHJpdmF0aW9uIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGZvciB0aGUgMzAgbWludXRlIGRhdGEKZ2ZfaGlzdG9ncmFtKH5FTy5NQVNURVIkYDEyMG1pbmApICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgIHRpdGxlID0gJzEyMCBNaW51dGVzIG9mIE93bmVyIERlcHJpdmF0aW9uIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGZvciB0aGUgMTIwIG1pbnV0ZSBkYXRhCmdmX2hpc3RvZ3JhbSh+RU8uTUFTVEVSJGA+MzYwbWluYCkgJT4lIGdmX2xhYnMoeCA9ICdUaW1lIFBsYXllZCAoU2Vjb25kcyknLCAgdGl0bGUgPSAnPjM2MCBNaW51dGVzIG9mIE93bmVyIERlcHJpdmF0aW9uIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIGZvciB0aGUgPjM2MCBtaW51dGUgZGF0YQpgYGAKT25lIHRoaW5nIHRvIG5vdGljZSBpbiB0aGUgZmF2c3RhdHMgb3V0cHV0cyBpcyB0aGF0IG9uIGF2ZXJhZ2UgdGhlIGFtb3VudCBvZiBwbGF5aW5nIHRpbWUgc2VlbXMgdG8gYmUgaW5jcmVhc2luZyBhcyBvd25lciBkZXByaXZhdGlvbiBpbmNyZWFzZXMuIEFub3RoZXIgdGhpbmcgdG8gbm90aWNlIGlzIHRoYXQgdGhlIHN0YW5kYXJkIGRldmlhdGlvbiBpcyBhbHNvIGluY3JlYXNpbmcgYXMgb3duZXIgZGVwcml2YXRpb24gaW5jcmVhc2VzLCBtZWFuaW5nIHRoYXQgdGhlcmUgaXMgbW9yZSB2YXJpYXRpb24gaW4gdGhlIGRhdGEgYXMgb3duZXIgZGVwcml2YXRpb24gZ29lcyB1cC4gV2hlbiB0aGUgaGlzdG9ncmFtcyBhcmUgcGxvdHRlZCBmb3IgdGhlIG92ZXJhbGwgZGF0YSwgaXQgaXMgY2xlYXIgdGhhdCB0aGUgZGF0YSBpcyBub3Qgbm9ybWFsLCBhbmQgd2Ugd2lsbCBuZWVkIHRvIHVzZSBub24tcGFyYW1ldHJpYyB0ZXN0cyB0byBydW4gdGhlIGFuYWx5c2VzLgoKIyAzMCBNYXJjaCAyMDIwCgojIyMjIFJlaW5mb3JjZXIgRGF0YXNldAoKYGBge3J9CmZhdnN0YXRzKH5SZWluZm9yY2VkLk1BU1RFUiRgQXR0ZW50aW9uIENvbnRyb2xgKSAjIERlc2NyaXB0aXZlIHN0YXRzIGZvciB0aGUgQXR0ZW50aW9uIENvbnRyb2wgZGF0YSB3aGljaCBpcyByYW5kb20gYXR0ZW50aW9uIApmYXZzdGF0cyh+UmVpbmZvcmNlZC5NQVNURVIkYEF0dGVudGlvbiBUZXN0YCkgIyBEZXNjcmlwdGl2ZSBzdGF0cyBmb3IgdGhlIEF0dGVudGlvbiBUZXN0IGRhdGEgd2hpY2ggaXMgYXR0ZW50aW9uIGdpdmVuIG9ubHkgd2hlbiBzb21ldGhpbmcgcG9zaXRpdmUgb3IgbmVnYXRpdmUgaGFwcGVucwpmYXZzdGF0cyh+UmVpbmZvcmNlZC5NQVNURVIkQWxvbmUpICMgRGVzY3JpcHRpdmUgc3RhdHMgZm9yIHRoZSBBbG9uZSBkYXRhIHdoaWNoIGlzIHRoZSBkb2dzIGluIGEgcm9vbSB3aXRoIG5vIGh1bWFucywganVzdCBhIHRyaXBvZCAKZ2ZfaGlzdG9ncmFtKH5SZWluZm9yY2VkLk1BU1RFUiRgQXR0ZW50aW9uIENvbnRyb2xgKSAlPiUgZ2ZfbGFicyh4ID0gJ1RpbWUgUGxheWVkIChTZWNvbmRzKScsIHRpdGxlID0gJ1JlaW5mb3JjZWQgRGF0YSBBdHRlbnRpb24gQ29udHJvbCBIaXN0b2dyYW0nKSAjIEhpc3RvZ3JhbSBvZiB0aGUgQXR0ZW50aW9uIENvbnRyb2wgZGF0YQpnZl9oaXN0b2dyYW0oflJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gVGVzdGApICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgdGl0bGUgPSAnUmVpbmZvcmNlZCBEYXRhIEF0dGVudGlvbiBUZXN0IEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIG9mIHRoZSBBdHRlbnRpb24gVGVzdCBkYXRhCmdmX2hpc3RvZ3JhbSh+UmVpbmZvcmNlZC5NQVNURVIkQWxvbmUpICU+JSBnZl9sYWJzKHggPSAnVGltZSBQbGF5ZWQgKFNlY29uZHMpJywgdGl0bGUgPSAnUmVpbmZvcmNlZCBEYXRhIEFsb25lIEhpc3RvZ3JhbScpICMgSGlzdG9ncmFtIG9mIHRoZSBBbG9uZSBkYXRhCmBgYApXaGVuIGxvb2tpbmcgYXQgdGhlIGRlc2NyaXB0aXZlIHN0YXRpc3RpY3MgZm9yIHRoZSBSZWluZm9yY2VkIGRhdGEsIGl0IGFwcGVhcnMgdGhhdCB0aGUgQXR0ZW50aW9uIENvbnRyb2wgc2Vzc2lvbnMgc2F3IHRoZSBtb3N0IHBsYXkgdGltZSwgZm9sbG93ZWQgYnkgdGhlIGFsb25lIGFuZCBhdHRlbnRpb24gdGVzdCBzZXNzaW9ucy4gVGhpcyBtYWtlcyBzZW5zZSBzaW5jZSByYW5kb20gYXR0ZW50aW9uIGFsd2F5cyBtYWtlcyBhIGRvZyBtb3JlIGV4Y2l0ZWQsIHdoZXJlYXMgYXR0ZW50aW9uIHdoZW4gYSBkb2cgZG9lcyBzb21ldGhpbmcgbndnYXRpdmUgbWF5IG1ha2UgdGhlIGRvZyBsZXNzIGV4Y2l0ZWQgYW5kIG5vdCB3aWxsaW5nIHRvIHBsYXkuIEFsbCBvZiB0aGUgaGlzdG9ncmFtcyBzaG93IGEgdmVyeSBza2V3ZWQgcmlnaHQgZGlzdHJpYnV0aW9uLCB0aGVyZWZvcmUgdGhlIEtydXNrYWwgV2FsbGlzIHRlc3QgbXVzdCBiZSB1c2VkIHRvIGFuYWx5emUgdGhpcyBkYXRhLiAKCgojIDMxIE1hcmNoIDIwMjAKCiMjIyBEZXNjcmlwdGl2ZSBTdGF0aXN0aWNzIGJ5IFNlc3NzaW9uIE51bWJlcgoKIyMjIyBTRCBEYXRhc2V0CgpgYGB7cn0KZmF2c3RhdHMoflNELk1hc3RlciRgU0QgKHMpYCB8IFNELk1hc3RlciRgU2Vzc2lvbiAjYCkKZmF2c3RhdHMoflNELk1hc3RlciRgUy1EZWx0YSAocylgIHwgU0QuTWFzdGVyJGBTZXNzaW9uICNgKQpgYGAKCiMjIyMgRU8gRGF0YXNldAoKYGBge3J9CmZhdnN0YXRzKH5FTy5NQVNURVIkYDAgbWluYCB8IEVPLk1BU1RFUiRTZXNzaW9uKSAjIDAgbWluIGRhdGEgYnkgc2Vzc2lvbiBudW1iZXIKZmF2c3RhdHMofkVPLk1BU1RFUiRgMzBtaW5gIHwgRU8uTUFTVEVSJFNlc3Npb24pICMgMzAgbWluIGRhdGEgYnkgc2Vzc2lvbiBudW1iZXIKZmF2c3RhdHMofkVPLk1BU1RFUiRgMTIwbWluYCB8IEVPLk1BU1RFUiRTZXNzaW9uKSAjIDEyMCBtaW4gZGF0YSBieSBzZXNzaW9uIG51bWJlciAKZmF2c3RhdHMofkVPLk1BU1RFUiRgPjM2MG1pbmAgfCBFTy5NQVNURVIkU2Vzc2lvbikgIyA+MzYwIG1pbiBkYXRhIGJ5IHNlc3Npb24gbnVtYmVyCmBgYApXaGVuIGxvb2tpbmcgYXQgZWFjaCBvZiB0aGUgdGltZSBpbnRlcnZhbHMgYnkgc2Vzc2lvbiBudW1iZXIsIHRoZSBkZXNjcmlwdGl2ZXMgc2hvdyB0aGF0IHNlc3Npb24gb25lIGhhZCBtb3JlIHBsYXlpbmcgdGltZSB0aGFuIHNlc3Npb24gdHdvIGZvciBhbGwgaW50ZXJ2YWxzIG9mIG93bmVyIGRlcHJpdmF0aW9uIGV4Y2VwdCBmb3IgdGhlID4zNjAgbWluIHRpbWUgaW50ZXJ2YWwuIAoKQWxsIG9mIHRoZSBzdGFuZGFyZCBkZXZpYXRpb25zIGFjcm9zcyBib3RoIHNlc3Npb25zIGZvciBlYWNoIHRpbWUgaW50ZXJ2YWwgYXJlIGxhcmdlbSwgaW5kaWNhdGluZyB0aGF0IHRoZSBhbW91bnQgb2YgcGxheXRpbWVzIHNob3duIGJ5IHRoZSBkb2dzIGhhdmUgYSBsb3Qgb2YgdmFyaWF0aW9uLiAKClRoZSBkb2dzIHNlZW0gdG8gcGxheSB0aGUgbW9zdCBvbiBhdmVyYWdlIHdoZW4gdGhlaXIgb3duZXIgaGFzIGJlZW4gYXdheSBmb3IgMTIwIG1pbnV0ZXMgaW4gdGhlIGZpcnN0IHNlc3Npb24sIGJ1dCB0aGVuIGluIHRoZSBzZWNvbmQgc2Vzc2lvbiB0aGV5IHBsYXllZCB0aGUgbW9zdCBvbiBhdmVyYWdlIHdoZW4gdGhlIG93bmVyIGhhZCBiZWVuIGF3YXkgZm9yID4zNjAgbWluLiAKCiMjIyMgUmVpbmZvcmNlZCBEYXRhc2V0CgpgYGB7cn0KZmF2c3RhdHMoflJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gQ29udHJvbGAgfCBSZWluZm9yY2VkLk1BU1RFUiRgU2Vzc2lvbiAjYCkgIyBBdHRlbnRpb24gQ29udHJvbCBkYXRhIGRlc2NyaXB0aXZlcyB3aGVuIHNwbGl0dGluZyBieSBzZXNzaW9uIG51bWJlciAKZmF2c3RhdHMoflJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gVGVzdGAgfCBSZWluZm9yY2VkLk1BU1RFUiRgU2Vzc2lvbiAjYCkgIyBBdHRlbnRpb24gVGVzdCBkYXRhIGRlc2NyaXB0aXZlcyB3aGVuIHNwbGl0dGluZyBieSBzZXNzaW9uIG51bWJlciAKZmF2c3RhdHMoflJlaW5mb3JjZWQuTUFTVEVSJEFsb25lIHwgUmVpbmZvcmNlZC5NQVNURVIkYFNlc3Npb24gI2ApICMgQWxvbmUgZGF0YSBkZXNjcmlwdGl2ZXMgd2hlbiBzcGxpdHRpbmcgYnkgc2Vzc2lvbiBudW1iZXIKYGBgCkZvciB0aGUgYXR0ZW50aW9uIGNvbnRyb2wgZGF0YSwgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIG1vc3QgcGxheXRpbWUgb24gYXZlcmFnZSB3YXMgc2Vzc2lvbiAyLCBhbmQgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIGxlYXN0IGFtb3VudCBvZiBwbGF5dGltZSBvbiBhdmVyYWdlIHdhcyBzZXNzaW9uIDEuIEZvciB0aGUgYXR0ZW50aW9uIHRlc3QgZGF0YSwgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIG1vc3QgcGxheXRpbWUgb24gYXZlcmFnZSB3YXMgc2Vzc2lvbiAyLCBhbmQgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIGxlYXN0IGFtb3VudCBvZiBwbGF5dGltZSBvbiBhdmVyYWdlIHdhcyBzZXNzaW9uIDMuIExhc3RseSwgZm9yIHRoZSBhbG9uZSBkYXRhc2V0LCB0aGUgc2Vzc2lvbiB3aXRoIHRoZSBoaWdoZXN0IHBsYXl0aW1lIG9uIGF2ZXJhZ2Ugd2FzIHNlc3Npb24gNSBhbmQgdGhlIHNlc3Npb24gdGhhdCBzaG93ZWQgdGhlIGxlYXN0IGFtb3VudCBvZiBwbGF5dGltZSBvbiBhdmVyYWdlIHdhcyBzZXNzaW9uIDMuIAoKIyMgRGF0YSBBbmFseXNpcyAKCiMjIyBNYW5uLVdoaXRuZXkgVSBUZXN0IG9uIHRoZSBTRCBEYXRhCgojIyMjIFNEIERhdGFzZXQKYGBge3J9CndpbGNveC50ZXN0KFNELk1hc3RlciRgU0QgKHMpYCwgU0QuTWFzdGVyJGBTLURlbHRhIChzKWAsIGFsdGVybmF0aXZlID0gYygidHdvLnNpZGVkIikpCmBgYApUaGUgTWFubi1XaGl0bmV5IFUgdGVzdCBzaG93cyBhIHAtdmFsdWUgb2YgMi4yZS0xNiB3aGljaCBpcyBzaWduaWZpY2FudCBlbm91Z2ggdG8gcmVqZWN0IHRoZSBudWxsIGh5cG90aGVzaXMuIFdlIGNhbiBjb25jbHVkZSB0aGF0IHRoZSBkaXN0cmlidXRpb25zIG9mIHRoZSBTRCBhbmQgUy1EZWx0YSBhcmUgZGlmZmVyZW50IGZvciBhbGwgZG9nIHBhaXJzLgoKCgoKIyAyIEFwcmlsIDIwMjAKCiMjIyMgRU8gRGF0YXNldAoKYGBge3J9CkVPLk1hc3Rlci4yIDwtIHJlYWRfZXhjZWwoJ0VPXzJfRGF0YS54bHN4JyAsIHNoZWV0ID0gJ0VPIE1hc3RlciBBdmVyYWdlcycpCmZyaWVkbWFuLnRlc3QoeSA9IEVPLk1hc3Rlci4yJCdBdmVyYWdlIFRpbWUgUGxheWVkIChTZWMpJyAsIGdyb3VwcyA9IEVPLk1hc3Rlci4yJCdHcm91cCAjJyAsIGJsb2NrcyA9IEVPLk1hc3Rlci4yJCdEb2cgUGFpciAjJykgIyBGcmllZG1hbiB0ZXN0IHRvIGNvbXBhcmUgbWVkaWFucyBvZiB0aGUgZm91ciB0aW1lIGludGVydmFsIGdyb3VwcyBvZiAwIG1pbiwgMzAgbWluLCAxMjAgbWluLCBhbmQgZ3JlYXRlciB0aGFuIDM2MCBtaW4uCndpbGNveC50ZXN0KHggPSBFTy5NQVNURVIkYDAgbWluYCAsIHkgPSBFTy5NQVNURVIkJzMwbWluJyAsIHBhaXJlZCA9IFRSVUUsIGNvbmYuaW50ID0gVFJVRSkgIyBBIHBvc3QgaG9jIHRlc3QgY29tcGFyaW5nIDAgbWluIGFuZCAzMCBtaW4gcGFpcndpc2UuIAp3aWxjb3gudGVzdCh4ID0gRU8uTUFTVEVSJGAwIG1pbmAgLCB5ID0gRU8uTUFTVEVSJCcxMjBtaW4nICwgcGFpcmVkID0gVFJVRSwgY29uZi5pbnQgPSBUUlVFKSAjIEEgcG9zdCBob2MgdGVzdCBjb21wYXJpbmcgMCBtaW4gYW5kIDEyMCBtaW4gcGFpcndpc2UuIAp3aWxjb3gudGVzdCh4ID0gRU8uTUFTVEVSJGAwIG1pbmAgLCB5ID0gRU8uTUFTVEVSJGA+MzYwbWluYCAsIHBhaXJlZCA9IFRSVUUsIGNvbmYuaW50ID0gVFJVRSkgIyBBIHBvc3QgaG9jIHRlc3QgY29tcGFyaW5nIDAgbWluIGFuZCA+MzYwIG1pbiBwYWlyd2lzZS4gCndpbGNveC50ZXN0KHggPSBFTy5NQVNURVIkJzMwbWluJyAsIHkgPSBFTy5NQVNURVIkJzEyMG1pbicgLCBwYWlyZWQgPSBUUlVFLCBjb25mLmludCA9IFRSVUUpICMgQSBwb3N0IGhvYyB0ZXN0IGNvbXBhcmluZyAzMCBtaW4gYW5kIDEyMCBtaW4gcGFpcndpc2UuIAp3aWxjb3gudGVzdCh4ID0gRU8uTUFTVEVSJCczMG1pbicgLCB5ID0gRU8uTUFTVEVSJGA+MzYwbWluYCAsIHBhaXJlZCA9IFRSVUUsIGNvbmYuaW50ID0gVFJVRSkgIyBBIHBvc3QgaG9jIHRlc3QgY29tcGFyaW5nIDMwIG1pbiBhbmQgPjM2MCBtaW4gcGFpcndpc2UuIAp3aWxjb3gudGVzdCh4ID0gRU8uTUFTVEVSJCcxMjBtaW4nICwgeSA9IEVPLk1BU1RFUiRgPjM2MG1pbmAgLCBwYWlyZWQgPSBUUlVFLCBjb25mLmludCA9IFRSVUUpICMgQSBwb3N0IGhvYyB0ZXN0IGNvbXBhcmluZyAxMjAgbWluIGFuZCAzNjAgbWluIHBhaXJ3aXNlLiAKCmBgYApXaGVuIGRvaW5nIHRoZSBmcmllZG1hbidzIHRlc3Qgb2YgdGhlIEVPIERhdGFzZXQsIHdpdGggYSBwLXZhbHVlIG9mIDAuOTM0MyB3ZSBmYWlsIHRvIHJlamVjdCB0aGUgbnVsbCBoeXBvdGhlc2lzIHRoYXQgdGhlIG1lYW5zIGFjcm9zcyB0aGUgZm91ciBncm91cHMgYXJlIGVxdWFsLiBUaGlzIGlzIGFuIGluY29uY2x1c2l2ZSByZXN1bHQuIEFmdGVyIGRvaW5nIHRoZSB3aWxjb3hvbiBzaWduZWQgcmFuayB0ZXN0IGZvciBwb3N0LWhvYyBhbmFseXNpcyB3ZSBzZWUgdGhhdCBhbGwgY29uZmlkZW5jZSBpbnRlcnZhbHMgY3Jvc3MgemVybyBpbmRpY2F0aW5nIHRoYXQgaXQgaXMgbm90IHN0YXRpc3RpY2FsbHkgc2lnbmlmaWNhbnQuIE5vdCBlbm91Z2ggZXZpZGVuY2UgaXMgYXZhaWxhYmxlIHRvIHN1Z2dlc3QgdGhhdCB0aGUgbWVkaWFucyBhcmUgbm90IGVxdWFsLgoKIyMjIyBSZWluZm9yY2VkIERhdGFzZXQKCmBgYHtyfQpSZWluLk1hc3Rlci4yIDwtIHJlYWRfZXhjZWwoJ1BsYXkgRXhwIDMgKFJlaW5mb3JjZXIpIERhdGEgTUFTVEVSMi54bHN4Jywgc2hlZXQgPSAnTWFzdGVyIEF2ZXJhZ2VzJykKZnJpZWRtYW4udGVzdCh5ID0gUmVpbi5NYXN0ZXIuMiRgQXZlcmFnZSBQbGF5VGltZSAoU2VjKWAsIGdyb3VwcyA9IFJlaW4uTWFzdGVyLjIkYEdyb3VwICNgLCBibG9ja3MgPSBSZWluLk1hc3Rlci4yJGBEb2cgUGFpciAjYCkgIyBGcmllZG1hbiB0ZXN0IHRvIGNvbXBhcmUgbWVkaWFucyBvZiB0aGUgYXR0ZW50aW9uIHRlc3QsIGF0dGVudGlvbiBjb250cm9sLCBhbmQgYWxvbmUgYXZlcmFnZSBwbGF5IHRpbWVzIHRvIHNlZSBpZiB0aGVyZSBpcyBhIHNpZ25pZmljYW50IGRpZmZlcmVuY2UuIAp3aWxjb3gudGVzdCh4ID0gUmVpbmZvcmNlZC5NQVNURVIkYEF0dGVudGlvbiBDb250cm9sYCwgeSA9IFJlaW5mb3JjZWQuTUFTVEVSJGBBdHRlbnRpb24gVGVzdGAsIHBhaXJlZCA9IFRSVUUsIGNvbmYuaW50ID0gVFJVRSkgIyBBIHBvc3QgaG9jIHRlc3QgY29tcGFyaW5nIGF0dGVudGlvbiBjb250cm9sIGFuZCBhdHRlbnRpb24gdGVzdCBwYWlyd2lzZS4gCndpbGNveC50ZXN0KHggPSBSZWluZm9yY2VkLk1BU1RFUiRgQXR0ZW50aW9uIENvbnRyb2xgLCB5ID0gUmVpbmZvcmNlZC5NQVNURVIkQWxvbmUsIHBhaXJlZCA9IFRSVUUsIGNvbmYuaW50ID0gVFJVRSkgIyBBIHBvc3QgaG9jIHRlc3QgY29tcGFyaW5nIGF0dGVudGlvbiBjb250cm9sIGFuZCBhbG9uZSBwYWlyd2lzZS4gCndpbGNveC50ZXN0KHggPSBSZWluZm9yY2VkLk1BU1RFUiRgQXR0ZW50aW9uIFRlc3RgLCB5ID0gUmVpbmZvcmNlZC5NQVNURVIkQWxvbmUsIHBhaXJlZCA9IFRSVUUsIGNvbmYuaW50ID0gVFJVRSkgIyBBIHBvc3QgaG9jIHRlc3QgY29tcGFyaW5nIGF0dGVudGlvbiB0ZXN0IHRvIGFsb25lIHBhaXJ3aXNlLiAKYGBgCgpXaGVuIGRvaW5nIHRoZSBpbml0aWFsIGZyaWVkbWFuJ3MgdGVzdCwgd2UgZ2V0IGEgcC12YWx1ZSBvZiAwLjAwMS4gVGhpcyBtZWFucyB0aGF0IGF0IGxlYXN0IG9uZSBvZiB0aGUgY29uZGl0aW9ucyBpcyBkaWZmZXJlbnQgZm9ybSB0aGUgcmVzdC4gV2hlbiBydW5uaW5nIHdpbGNveG9uIHNpZ25lZCByYW5rIHRlc3QgYXMgcG9zdC1ob2NzLCB3ZSBzZWUgdGhhdCBhdHRuZXRpb24gY29udHJvbCBpcyBzaWduaWZpY2FudGx5IGRpZmZlcmVudCBmcm9tIGJvdGggYXR0ZW50aW9uIHRlc3QgYXMgd2VsbCBhcyBhbG9uZS4gVGhpcyBzaG93cyB0aGF0IGF0dGVudGlvbiBjb250cm9sIGlzIHdoYXQgY2F1c2VkIHRoZSBzaWduaWZpY2FudCBmcmllZG1hbidzIHRlc3QgYW5kIHNob3dlZCBzaWduaWZpY2FudGx5IGhpZ2hlciBhbW91bnRzIG9mIHBsYXl0aW1lIHRoYW4gdGhlIG90aGVyIHR3byBjb25kaXRpb25zLiAKCgoK</div>
 
 
 
