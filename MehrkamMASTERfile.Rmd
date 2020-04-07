@@ -9,7 +9,7 @@ output: html_notebook
 ## Package Loading 
 ```{r, message = FALSE}
 library(mosaic)
-install.packages('readxl')
+#install.packages('readxl')
 library(readxl)
 ```
 
@@ -144,6 +144,18 @@ wilcox.test(x = Reinforced.MASTER$`Attention Test`, y = Reinforced.MASTER$Alone,
 ```
 
 When doing the initial friedman's test, we get a p-value of 0.001. This means that at least one of the conditions is different form the rest. When running wilcoxon signed rank test as post-hocs, we see that attnetion control is significantly different from both attention test as well as alone. This shows that attention control is what caused the significant friedman's test and showed significantly higher amounts of playtime than the other two conditions. 
+
+# 7 April 2020
+
+
+```{r}
+Reinforced.Kruskal <- read_excel('Play Exp 3 (Reinforcer) Data MASTER2.xlsx', sheet = 'Master Reinforcer') # Loaded file with krusal wallis friendly data from excel 
+kruskal.test( Reinforced.Kruskal$`Time Played (Sec)`, g = Reinforced.Kruskal$`Group #`) # Runs a kruskal wallis test between the 3 groups, attention control, attention test, and alone
+wilcox.test(x = Reinforced.MASTER$`Attention Control`, y = Reinforced.MASTER$`Attention Test`, conf.int = TRUE) # Post hoc test comparing attention control and attention test pairwise
+wilcox.test(x = Reinforced.MASTER$`Attention Control`, y = Reinforced.MASTER$Alone,conf.int = TRUE) # Post hoc test comparing attention control and alone pairwise
+wilcox.test(x = Reinforced.MASTER$`Attention Test`, y = Reinforced.MASTER$Alone, conf.int = TRUE) # Post hoc test comparing attention test and alone pairwise
+```
+After performing all of the tests, it was found that the kruskal wallis test was significant with a p-value of .000003 which means it can be strongly concluded that at least one of the conditions is different from the rest. In the post hoc tests which are just Mann-Whitney U tests, it can be seen that attention control is significantly different from both attention test and alone. Since there is no significant difference between attention test and alone, it can be concluded that attention control is what was causing the significant kruskal wallis test. 
 
 
 
