@@ -157,5 +157,30 @@ wilcox.test(x = Reinforced.MASTER$`Attention Test`, y = Reinforced.MASTER$Alone,
 ```
 After performing all of the tests, it was found that the kruskal wallis test was significant with a p-value of .000003 which means it can be strongly concluded that at least one of the conditions is different from the rest. In the post hoc tests which are just Mann-Whitney U tests, it can be seen that attention control is significantly different from both attention test and alone. Since there is no significant difference between attention test and alone, it can be concluded that attention control is what was causing the significant kruskal wallis test. 
 
+#### EO Dataset Kruskall-Wallis
+```{r}
+EO.Kruskal <- read_excel('EO_Data_KW.xlsx' , sheet = 'EO Master KW')
+```
+
+```{r}
+kruskal.test(EO.Kruskal$`0 min`, EO.Kruskal$'30min')
+kruskal.test(EO.Kruskal$`0 min`, EO.Kruskal$'120min')
+kruskal.test(EO.Kruskal$`0 min`, EO.Kruskal$`>360min`)
+kruskal.test(EO.Kruskal$'30min', EO.Kruskal$'120min')
+kruskal.test(EO.Kruskal$'30min', EO.Kruskal$`>360min`)
+kruskal.test(EO.Kruskal$'120min', EO.Kruskal$`>360min`)
+```
+The kruskall-wallis test for the EO dataset also indicates that the there is not enough evidence to reject the null hypothesis of equal means across the four groups. 
+
+```{r}
+wilcox.test(x = EO.Kruskal$`0 min`, y = EO.Kruskal$'30min', conf.int = TRUE) # Post hoc test comparing O min and 30 min interval
+wilcox.test(x = EO.Kruskal$`0 min`, y = EO.Kruskal$'120min', conf.int = TRUE) # Post hoc test comparing O min and 120 min interval
+wilcox.test(x = EO.Kruskal$`0 min`, y = EO.Kruskal$`>360min`, conf.int = TRUE) # Post hoc test comparing O min and >360 min interval
+wilcox.test(x = EO.Kruskal$'30min', y = EO.Kruskal$'120min', conf.int = TRUE) # Post hoc test comparing 30 min and 120 min interval
+wilcox.test(x = EO.Kruskal$'30min', y = EO.Kruskal$`>360min`, conf.int = TRUE) # Post hoc test comparing 30 min and >360 min interval
+wilcox.test(x = EO.Kruskal$'120min', y = EO.Kruskal$`>360min`, conf.int = TRUE) # Post hoc test comparing 120 min and >360 min interval
+```
+The above post hocs for the kruskall-wallis test show that there isn't enough evidence to reject the null hypothesis. This makes sense because the conclusion of the k-w test is to not reject the null hypothesis, essentially, the post-hocs are indicative of that conclusion.
+
 
 
