@@ -131,7 +131,7 @@ wilcox.test(x = EO.MASTER$'30min' , y = EO.MASTER$`>360min` , paired = TRUE, con
 wilcox.test(x = EO.MASTER$'120min' , y = EO.MASTER$`>360min` , paired = TRUE, conf.int = TRUE) # A post hoc test comparing 120 min and 360 min pairwise. 
 
 ```
-When doing the friedman's test of the EO Dataset, with a p-value of 0.9343 we fail to reject the null hypothesis that the means across the four groups are equal. This is an inconclusive result. After doing the wilcoxon signed rank test for post-hoc analysis we see that all confidence intervals cross zero indicating that it is not statistically significant. Not enough evidence is available to suggest that the medians are not equal.
+When doing the friedman's test of the EO Dataset, with a p-value of 0.9343 we fail to reject the null hypothesis that the medians across the four groups are equal. This is an inconclusive result. After doing the wilcoxon signed rank test for post-hoc analysis we see that all confidence intervals cross zero indicating that it is not statistically significant. Not enough evidence is available to suggest that the medians are not equal.
 
 #### Reinforced Dataset
 
@@ -170,7 +170,7 @@ kruskal.test(EO.Kruskal$'30min', EO.Kruskal$'120min')
 kruskal.test(EO.Kruskal$'30min', EO.Kruskal$`>360min`)
 kruskal.test(EO.Kruskal$'120min', EO.Kruskal$`>360min`)
 ```
-The kruskall-wallis test for the EO dataset also indicates that the there is not enough evidence to reject the null hypothesis of equal means across the four groups. 
+The kruskall-wallis test for the EO dataset also indicates that the there is not enough evidence to reject the null hypothesis of equal medians across the four groups. 
 
 ```{r}
 wilcox.test(x = EO.Kruskal$`0 min`, y = EO.Kruskal$'30min', conf.int = TRUE) # Post hoc test comparing O min and 30 min interval
@@ -182,5 +182,8 @@ wilcox.test(x = EO.Kruskal$'120min', y = EO.Kruskal$`>360min`, conf.int = TRUE) 
 ```
 The above post hocs for the kruskall-wallis test show that there isn't enough evidence to reject the null hypothesis. This makes sense because the conclusion of the k-w test is to not reject the null hypothesis, essentially, the post-hocs are indicative of that conlusion.
 
+```{r}
+
+```
 
 
