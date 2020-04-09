@@ -138,9 +138,9 @@ When doing the friedman's test of the EO Dataset, with a p-value of 0.9343 we fa
 ```{r}
 Rein.Master.2 <- read_excel('Play Exp 3 (Reinforcer) Data MASTER2.xlsx', sheet = 'Master Averages')
 friedman.test(y = Rein.Master.2$`Average PlayTime (Sec)`, groups = Rein.Master.2$`Group #`, blocks = Rein.Master.2$`Dog Pair #`) # Friedman test to compare medians of the attention test, attention control, and alone average play times to see if there is a significant difference. 
-wilcox.test(x = Reinforced.MASTER$`Attention Control`, y = Reinforced.MASTER$`Attention Test`, paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention control and attention test pairwise. 
-wilcox.test(x = Reinforced.MASTER$`Attention Control`, y = Reinforced.MASTER$Alone, paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention control and alone pairwise. 
-wilcox.test(x = Reinforced.MASTER$`Attention Test`, y = Reinforced.MASTER$Alone, paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention test to alone pairwise. 
+wilcox.test(x = Rein.Master.2$`Average PlayTime (Sec)`[Rein.Master.2$`Group #`==1], y = Rein.Master.2$`Average PlayTime (Sec)`[Rein.Master.2$`Group #`==2] , paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention control and attention test pairwise. 
+wilcox.test(x = Rein.Master.2$`Average PlayTime (Sec)`[Rein.Master.2$`Group #`==1], y = Rein.Master.2$`Average PlayTime (Sec)`[Rein.Master.2$`Group #`==3], paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention control and alone pairwise. 
+wilcox.test(x = Rein.Master.2$`Average PlayTime (Sec)`[Rein.Master.2$`Group #`==2], y = Rein.Master.2$`Average PlayTime (Sec)`[Rein.Master.2$`Group #`==3], paired = TRUE, conf.int = TRUE) # A post hoc test comparing attention test to alone pairwise. 
 ```
 
 When doing the initial friedman's test, we get a p-value of 0.001. This means that at least one of the conditions is different form the rest. When running wilcoxon signed rank test as post-hocs, we see that attnetion control is significantly different from both attention test as well as alone. This shows that attention control is what caused the significant friedman's test and showed significantly higher amounts of playtime than the other two conditions. 
@@ -180,7 +180,7 @@ wilcox.test(x = EO.Kruskal$'30min', y = EO.Kruskal$'120min', conf.int = TRUE) # 
 wilcox.test(x = EO.Kruskal$'30min', y = EO.Kruskal$`>360min`, conf.int = TRUE) # Post hoc test comparing 30 min and >360 min interval
 wilcox.test(x = EO.Kruskal$'120min', y = EO.Kruskal$`>360min`, conf.int = TRUE) # Post hoc test comparing 120 min and >360 min interval
 ```
-The above post hocs for the kruskall-wallis test show that there isn't enough evidence to reject the null hypothesis. This makes sense because the conclusion of the k-w test is to not reject the null hypothesis, essentially, the post-hocs are indicative of that conlusion.
+The above post hocs for the kruskall-wallis test show that there isn't enough evidence to reject the null hypothesis. This makes sense because the conclusion of the k-w test is to not reject the null hypothesis, essentially, the post-hocs are indicative of that conclusion.
 
 ```{r}
 
