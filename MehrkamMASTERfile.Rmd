@@ -109,7 +109,7 @@ For the attention control data, the session that showed the most playtime on ave
 
 #### SD Dataset
 ```{r}
-wilcox.test(SD.Master$`SD (s)`, SD.Master$`S-Delta (s)`, alternative = c("two.sided"))
+wilcox.test(SD.Master$`SD (s)`, SD.Master$`S-Delta (s)`, alternative = c("two.sided"), conf.int = "true")
 ```
 The Mann-Whitney U test shows a p-value of 2.2e-16 which is significant enough to reject the null hypothesis. We can conclude that the distributions of the SD and S-Delta are different for all dog pairs.
 
